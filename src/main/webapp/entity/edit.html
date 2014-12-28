@@ -1,0 +1,25 @@
+<#include "/common/template.html" />
+<div class="pageContent">
+	<form method="post" action="entity/save" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+	<input type="hidden" name="entity.id" value="${entity.id}">
+	<input type="hidden" name="entity.project_id" value="${entity.project_id}">
+		<div class="pageFormContent" layoutH="56">
+			<p>
+				<label>表名：</label>
+				<input name="entity.name" class="required" type="text" size="30" value="${entity.name}" />
+			</p>
+			<p>
+				<label>描述：</label>
+				<input name="entity.label" class="required" type="text" size="30" value="${entity.label}"/>
+			</p>
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

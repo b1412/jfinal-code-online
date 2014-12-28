@@ -1,0 +1,95 @@
+<#include "/common/template.html" />
+<@simpleLayout actionUrl="task/">
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="task/" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <!--<li>-->
+                    <!--<div class="buttonActive">-->
+                    <!--<div class="buttonContent">-->
+                    <!--<button type="submit">检索</button>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <#if lookup==1>
+                        <li>
+                            <div class="button">
+                                <div class="buttonContent">
+                                    <button type="button" multLookup="taskId" warn="请选择task">选择带回</button>
+                                </div>
+                            </div>
+                        </li>
+                    </#if>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <#if lookup!=1>
+                <li><a class="add" href="task/edit/-1" target="navTab" ref="editproject"><span>添加</span></a></li>
+                <li class="line">line</li>
+                <li><a class="delete" href="task/delete/{itemid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a>
+                </li>
+                <li class="line">line</li>
+                <li><a class="edit" href="task/edit/{itemid}" target="navTab"><span>修改</span></a></li>
+                <li class="line">line</li>
+                <!--<li><a class="edit" href="task/eval/{itemid}" target="navTab"><span>执行表达式</span></a></li>-->
+                <!--<li class="line">line</li>-->
+            </#if>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <#if lookup==1>
+                <th width="30"><input type="checkbox" class="checkboxCtrl" group="taskId"/></th>
+            </#if>
+            <th>任务名</th>
+            <th>任务类型</th>
+            <th>文件夹</th>
+            <th>文件名</th>
+            <th>模板路径</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <#list page.getList() as item>
+            <tr target="itemid" rel="${item.id}">
+                <#if lookup==1>
+                    <td><input type="checkbox"
+                        <#list taskIds as id>
+                            <#if id=item.id>checked="checked"</#if>
+                        </#list>
+                        name="taskId" value="{ids:'${item.id}', taskNames:'${item.taskname}'}"/>
+                    </td>
+                </#if>
+                <td>
+                    ${item.taskname}
+                </td>
+                <td>
+                    ${item.tasktype}
+                </td>
+                |
+                <td>
+                    ${item.folder}
+                </td>
+                <td>
+                    ${item.filename}
+                </td>
+                <td>
+                    ${item.templatepath}
+                </td>
+
+
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+</div>
+</@simpleLayout>

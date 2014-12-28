@@ -1,0 +1,16 @@
+*.log
+.classpath
+.project
+.settings
+/build/*
+*.class
+/bin
+/target
+*.tex
+*.pdf
+.idea/
+.gradle/
+*.iml
+*.ipr
+*.isw
+src/main/webapp/target/*

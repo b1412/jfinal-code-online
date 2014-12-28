@@ -1,0 +1,89 @@
+<#include "/common/template.html" />
+<div class="pageContent">
+    <form method="post" action="task/save" class="pageForm required-validate"
+          onsubmit="return validateCallback(this, navTabAjaxDone);">
+
+        <input type="hidden" name="task.id" value="${task.id}">
+
+        <div class="pageFormContent" layoutH="56">
+            <#escape x as x?html>
+                <p>
+                    <label>任务名：</label>
+                    <input name="task.taskname" class="required" type="text" size="30" value="${task.taskname}"/>
+                </p>
+
+                <p>
+                    <label>任务类型：</label>
+                    <input name="task.tasktype" class="required" type="text" size="30" value="${task.tasktype}"
+                           alt="请输入内容"/>
+                </p>
+                <p>
+                    <label>文件夹：</label>
+                    <input name="task.folder" class="required" type="text" size="30" value="${task.folder}"/>
+                </p>
+                <p>
+                    <label>文件名：</label>
+                    <input name="task.filename" class="required" type="text" size="30" value="${task.filename}"/>
+                </p>
+
+                <p>
+                    <label>模板路径：</label>
+                    <input name="task.templatepath" class="required" type="text" size="30"
+                           value="${task.templatepath}"/>
+                </p>
+            </#escape>
+            <div class="divider"></div>
+            <h3 class="contentTitle">模板参数</h3>
+            <div>
+                <table class="list nowrap itemDetail" addButton="新增参数" width="100%">
+                    <thead>
+                    <tr>
+                        <th type="text" name="taskParams[#index#].key" size="20" fieldClass="required">
+                            key
+                        </th>
+                        <th type="text" name="taskParams[#index#].expression" size="20" fieldClass="required">
+                            expression
+                        </th>
+                        <th type="del" width="60">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <#list task.taskParams as item>
+                        <tr>
+                            <td>
+                                <input type="text" name="taskParams[${item_index}].key" value="${item.key}" size="20" class="required textInput valid">
+                            </td>
+                            <td>
+                                <input type="text" name="taskParams[${item_index}].expression" value="${item.expression}" size="20" class="required textInput valid">
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="btnDel ">删除</a>
+                            </td>
+                        </tr>
+                    </#list>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="buttonActive">
+                        <div class="buttonContent">
+                            <button type="submit">保存</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">取消</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

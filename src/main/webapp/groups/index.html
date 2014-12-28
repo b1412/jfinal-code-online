@@ -1,0 +1,58 @@
+<#include "/common/template.html" />
+<@simpleLayout actionUrl="groups/">
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="task/" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <!--<li>-->
+                    <!--<label>标题：</label>-->
+                    <!--<input name="title" type="text"/>-->
+                <!--</li>-->
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <!--<li>-->
+                        <!--<div class="buttonActive">-->
+                            <!--<div class="buttonContent">-->
+                                <!--<button type="submit">检索</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="groups/edit/-1" target="navTab" ref="editproject"><span>添加</span></a></li>
+            <li class="line">line</li>
+            <li><a class="delete" href="groups/delete/{itemid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+            <li class="line">line</li>
+            <li><a class="edit" href="groups/edit/{itemid}" target="navTab"><span>修改</span></a></li>
+            <li class="line">line</li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <th>任务组名</th>
+            <th>任务组备注</th>
+        </tr>
+        </thead>
+        <tbody>
+        <#list page.getList() as item>
+            <tr target="itemid" rel="${item.id}">
+                <td>
+                    ${item.name}
+                </td>
+                <td>
+                    ${item.remark}
+                </td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+</div>
+</@simpleLayout>

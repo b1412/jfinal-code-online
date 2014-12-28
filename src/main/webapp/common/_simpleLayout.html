@@ -1,0 +1,26 @@
+<#macro simpleForm actionUrl params="">
+	<form id="pagerForm" method="post" action="${actionUrl}?${params}">
+ 		<input type="hidden" name="pageNum" value="1" />
+ 		<input type="hidden" name="numPerPage" value="20" />
+	</form>
+</#macro>
+<#macro pagination>
+	<div class="panelBar">
+		<div class="pages">
+			<span>显示</span>
+			<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				<option value="20">20</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+				<option value="200">200</option>
+			</select>
+			<span>条，共${page.totalRow}条</span>
+		</div>
+		<div class="pagination"  targetType="navTab" totalCount="${page.totalRow}" numPerPage="${page.pageSize}" pageNumShown="10" currentPage="${page.pageNumber}"></div>
+	</div>
+</#macro>
+<#macro simpleLayout actionUrl params="">
+	<@simpleForm actionUrl=actionUrl params=params/>
+	<#nested>
+	<@pagination/>
+</#macro>

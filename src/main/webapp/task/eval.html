@@ -1,0 +1,46 @@
+<#include "/common/template.html" />
+<@simpleLayout actionUrl="task/eval/${task.id}">
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="task/" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+            </ul>
+            <div class="subBar">
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <th>文件名</th>
+            <th>模板路径</th>
+            <th>文件夹</th>
+        </tr>
+        </thead>
+        <tbody>
+        <#list records as item>
+            <tr>
+                <td>
+                    ${item.filename}
+                </td>
+                <td>
+                    ${item.templatepath}
+                </td>
+                <td>
+                    ${item.floder}
+                </td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+</div>
+</@simpleLayout>
