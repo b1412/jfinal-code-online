@@ -5,9 +5,6 @@ import com.jfinal.plugin.activerecord.Record;
 
 import java.util.List;
 
-/**
- * Created by kid on 14-12-26.
- */
 public class YesOrNo {
     public  static  List<Record> RECORDS = Lists.newArrayList();
 

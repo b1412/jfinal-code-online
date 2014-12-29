@@ -7,9 +7,6 @@ import com.jfinal.plugin.activerecord.Db;
 
 import java.util.List;
 
-/**
- * Created by kid on 14-12-21.
- */
 public class DbDbInfoProvider implements DbInfoProvider {
 
     @Override

@@ -14,3 +14,5 @@
 *.ipr
 *.isw
 src/main/webapp/target/*
+src/main/webapp/WEB-INF/classes/*
+

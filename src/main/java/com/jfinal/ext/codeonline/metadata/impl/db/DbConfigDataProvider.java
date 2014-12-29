@@ -1,14 +1,9 @@
 package com.jfinal.ext.codeonline.metadata.impl.db;
 
 import com.jfinal.ext.codeonline.metadata.*;
-import lombok.Data;
 
 import java.util.List;
 
-/**
- * Created by kid on 14-12-21.
- */
-@Data
 public class DbConfigDataProvider implements ConfigDataProvider {
 
     private ViewFrameworkProvider viewFrameworkProvider = new DbViewFrameworkProvider();

@@ -6,9 +6,6 @@ import com.jfinal.ext.codeonline.metadata.impl.db.model.ViewFramework;
 
 import java.util.List;
 
-/**
- * Created by kid on 14-12-21.
- */
 public class DbViewFrameworkProvider implements ViewFrameworkProvider {
     @Override
     public List<String> viewFrameWorks() {

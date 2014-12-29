@@ -10,9 +10,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by kid on 14-12-21.
- */
 public class BaseController extends Controller {
     /**
      * 获取以modelName开头的参数，并自动赋值给record对象

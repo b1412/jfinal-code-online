@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'jetty'
 apply plugin: 'war'
 sourceCompatibility = 1.6
 repositories {

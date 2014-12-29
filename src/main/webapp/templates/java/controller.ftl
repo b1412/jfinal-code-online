@@ -12,7 +12,7 @@ import com.jfinal.ext.render.DwzRender;
 public class ${entity.name?cap_first}Controller extends Controller {
     @Before(value = ${entity.name?cap_first}Searcher.class)
 	public void index() {
-    //setAttr("page", ${entity.name?cap_first}.dao.page(getParaToInt("pageNum",1),getParaToInt("numPerPage",10)));
+    //setAttr("page", ${entity.name?cap_first}.DAO.page(getParaToInt("pageNum",1),getParaToInt("numPerPage",10)));
     }
 	
 	public void add() {
@@ -31,10 +31,10 @@ public class ${entity.name?cap_first}Controller extends Controller {
 	}
 	
 	public void edit() {
-		setAttr("${entity.name}", ${entity.name?cap_first}.dao.findById(getPara(0)));
+		setAttr("${entity.name}", ${entity.name?cap_first}.DAO.findById(getPara(0)));
 	}
 	public void view() {
-		setAttr("${entity.name}", ${entity.name?cap_first}.dao.findById(getPara(0)));
+		setAttr("${entity.name}", ${entity.name?cap_first}.DAO.findById(getPara(0)));
 	}
 	
 	public void update() {
@@ -47,7 +47,7 @@ public class ${entity.name?cap_first}Controller extends Controller {
 	}
 	
 	public void delete() {
-		${entity.name?cap_first}.dao.deleteById(getPara(0));
+		${entity.name?cap_first}.DAO.deleteById(getPara(0));
         <#if project.viewFramework="dwz">
 		DwzRender.success("rel_${entity.name}");
 		<#else>
@@ -55,7 +55,7 @@ public class ${entity.name?cap_first}Controller extends Controller {
         </#if>
 	}
 	public void excel() {
-		List<${entity.name?cap_first}> data = ${entity.name?cap_first}.dao.page(getParaToInt("pageNum",1),getParaToInt("numPerPage",10)).getList();
+		List<${entity.name?cap_first}> data = ${entity.name?cap_first}.DAO.page(getParaToInt("pageNum",1),getParaToInt("numPerPage",10)).getList();
 		String[] headers = new String[]{<#list entity.fields as field><#if field.isPrimaryKey!=1>"${field.name}"<#if field_has_next>,</#if></#if></#list>};
 		String[] columns = new String[]{<#list entity.fields as field><#if field.isPrimaryKey!=1>"${field.name}"<#if field_has_next>,</#if></#if></#list>};
 	    render(PoiRender.me(data).headers(headers).columns(columns).fileName("${entity.name}.xls"));

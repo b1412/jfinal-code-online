@@ -2,10 +2,10 @@ package com.jfinal.ext.codeonline.common;
 
 import com.google.common.collect.Maps;
 import com.jfinal.ext.codeonline.core.Config;
-import com.jfinal.ext.codeonline.webdesigner.entity.Entity;
-import com.jfinal.ext.codeonline.webdesigner.project.Project;
-import com.jfinal.ext.codeonline.webdesigner.task.Task;
-import com.jfinal.ext.codeonline.webdesigner.task.TaskParam;
+import com.jfinal.ext.codeonline.designer.entity.Entity;
+import com.jfinal.ext.codeonline.designer.project.Project;
+import com.jfinal.ext.codeonline.designer.task.Task;
+import com.jfinal.ext.codeonline.designer.task.TaskParam;
 import com.jfinal.kit.StrKit;
 import com.jfinal.log.Logger;
 

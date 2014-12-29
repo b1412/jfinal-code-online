@@ -1,11 +1,10 @@
 package com.jfinal.ext.codeonline.core;
 
 import com.jfinal.ext.codeonline.common.GenException;
-import com.jfinal.ext.codeonline.webdesigner.group.Groups;
-import com.jfinal.ext.codeonline.webdesigner.project.Project;
+import com.jfinal.ext.codeonline.designer.group.Groups;
+import com.jfinal.ext.codeonline.designer.project.Project;
 import com.jfinal.kit.PathKit;
 import com.jfinal.log.Logger;
-import lombok.Data;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import static com.jfinal.ext.codeonline.core.Constants.FS;
 
-@Data
 public class JFinalCodeOnline {
 
     private static final Logger LOG = Logger.getLogger(JFinalCodeOnline.class);

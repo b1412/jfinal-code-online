@@ -2,6 +2,7 @@ package ${project.packageName}.${entity.name?lower_case};
 
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
+import java.util.Date;
 import com.jfinal.log.Logger;
 
 @SuppressWarnings("serial")

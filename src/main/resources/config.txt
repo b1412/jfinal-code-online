@@ -1,6 +1,5 @@
-jdbcurl=jdbc:mysql://localhost:3306/jfinal_code?useUnicode=true&characterEncoding=utf8
-driver=com.mysql.jdbc.Driver
-username=root
-password=root
+jdbcUrl = jdbc:h2:jfinal_code;DATABASE_TO_UPPER=false
+driver=org.h2.Driver
+username=sa
+password=
 devMode=true
-

@@ -1,15 +1,16 @@
+
 #+TITLE:     JFinal-Code-Online 文档(v1.0)
 #+AUTHOR:    Leon Zhou
 #+EMAIL:     zhouleib1412@gmail.com.cn
 #+DATE:      2015-01-01
 #+DESCRIPTION:
-#+KEYWORDS:
+#+KEYWORDS:  Java JFinal JCOP JavaWeb
 #+LANGUAGE:  zh_CN
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+LATEX_CLASS: cn-article
 
-jfinal-code-online plaform 是一个基于JFinal的业务基础代码生成平台，本身是个web项目,其核心设计目标是轻量,易学,易扩展.
+jfinal-code-online platform 是一个基于JFinal的业务基础代码生成平台，本身是个web项目,其核心设计目标是轻量,易学,易扩展.
 
 * features
 ** 基于业务模型快速生成，大大提高开发速度。
@@ -19,32 +20,124 @@ jfinal-code-online plaform 是一个基于JFinal的业务基础代码生成平�
 ** 容易上手，无论是学习还是作用项目开发，平台容易掌握，学习曲线低。
 
 * Quick start
-** 执行sql脚本jfinal_code.sql
-** 运行JCOP.war
+
+** 构建(或下载)并运行jcop.war
+jcop.war下载地址
+
+   http://106.186.24.107:8080/vocab/jcop.war
+
+如果你对源码有兴趣请从github或者oscgit下载源码构建.
+
+源码地址:
+
+   git clone https://github.com/b1412/jfinal-code-online.git
+   git clone https://git.oschina.net/zhouleib1412/jfinal-code-online.git
+
+ 如果你是gradle用户(2.0以上),请直接执行gradle war构建项目.
+ 如果没有grald windows用户执行 gradlew.bat,linux用户执行gradlew,自动下载gralde完成后,
+ 执行 gradlew war构建项目,构建成功后如下位置找到war
+
+     build/libs/jcop.war
+
+
+
+** 启动项目
+ 将jcop.war复制到任何servlet容器(如tomcat,jetty)并启动
+
+ 访问项目主页http://localhost:8080/jcop,显示如下
+ (8080为容器默认端口,可以自己修改)
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/index.jpg]]
+
 ** 创建项目
+点击左侧菜单的"project管理",显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/project_index.jpg]]
+
+点击project管理列表页工具栏上的"添加",填入测试数据,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/project_add.jpg]]
+
+保存测试数据回到"project管理"列表页,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/project_new_index.jpg]]
+
 ** 创建实体
+
+点击"project管理"列表页工具栏上的"编辑实体",填入测试数据,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/entity_index.jpg]]
+
+点击"编辑实体"列表页工具栏上的"添加",填入测试数据,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/entity_add.jpg]]
+
+保存测试数据回到"编辑实体"列表页,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/entity_new_index.jpg]]
+
 ** 创建字段
+
+点击"编辑实体"列表页工具栏上的"编辑字段",填入测试数据,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/field_index.jpg]]
+
+点击"编辑字段"列表页工具栏上的"添加",填入测试数据,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/field_add.jpg]]
+
+保存测试数据回到"编辑字段"列表页,显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/field_new_index.jpg]]
+
 ** 生成项目
+回到"project管理"列表页,选择刚编辑的项目,点击"生成项目",显示如下图:
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/create.jpg]]
+
 ** 在线浏览代码
+选择任何一个刚生成的文件名字点击"查看",则可在线查看源代码
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/code.jpg]]
+
 ** 在线预览项目(敬请期待...)
+
 ** 下载项目源码
+
+#+ATTR_HTML: width="800px"
+[[./doc/img/download.jpg]]
 
 * 反向工程(敬请期待...)
 
-* 目标用户 Who are the users?
-** JFinal初学者(自学者)
-对于个人来说通过对JCOP开源平台的学习(因为可以说平台本身就是目前很多主流框架的一个容器)，
+* 目标用户
+
+** JFinal初学者
+对于个人来说通过对JCOP开源平台的学习(因为JCOP本身就是主流框架的一个容器),
 可以快速的提升自己对JFinal完整项目的熟悉,快速熟悉JFinal中各种常用功能,不同于一般的学习demo的一点是,
-使用JCOP,初学者可以迅速搭建自己的业务demo并查看符合jfinal项目风格的代码。
+使用JCOP,初学者可以迅速搭建自己的业务demo并查看符合jfinal项目风格的代码.
 
 ** 以JFinal为核心框架进行团队开发的团队
-可以说本平台是程序员为程序员开发的一个工具，它的开发模式与传统开发模式完全相同。
+可以说本平台是程序员为程序员开发的一个工具,它的开发模式与传统开发模式完全相同.
 
 ** 想开发适合自己团队的基础业务平台快速搭建工具的团队
-很多团队除开基本CRUD都有自己常用的一些业务功能模块,一般的生成工具并没有提供功能,在上面扩展自己的功能有很大学习成本(如eclipse plugin).
-而JCOP则可以完全靠web前端技术来扩展自己想要的一切,或者也可以把JCOP仅仅看做是一个基于web的生成器雏形,非常容易的用来做二次开发.
+很多团队除开基本CRUD都有自己常用的一些业务功能模块,一般的生成工具并没有提供功能,
+在上面扩展自己的功能有很大学习成本(如学习eclipse plugin).
+而JCOP则可以完全靠web前端技术来扩展自己想要的一切,或者也可以把JCOP仅仅看做是一个基于web的生成器雏形,
+非常容易的用来做二次开发.
 
-* 为什么选择JCOP  why JCOP
+* 为什么选择JCOP
 
 ** 模型化重复功能
 jfinal-code-online platform (以下简称JCOP)的目的就是通过平台模型化(生成器模板)常用功能,CURD,数据校验等,从而提高开发效率，
@@ -60,7 +153,6 @@ JCOP也是一个JFinal开源框架很好的学习工具，因为它本身是一�
 但是熟悉其他技术的开发者可以轻松的将自己熟悉的框架技术加入平台．这也是JCOP设计的核心目标之一．
 不同与一些以模型为驱动的业务平台产品有自己的开发规则、脚本语言与操作方式成为了一个自封闭的系统。
 
-
 ** 不依赖IDE
 一些功能齐全的平台都依附于特定的IDE,如作为一个eclipse plugin存在,在操作是更加方便,但是却增加了开发和使用的复杂度.
 JCOP不开发自己的IDE,也不开发插件,只作为一个普通的标准的web项目存在,这样就算是用户对UI有自己的需求只要懂web前端开发,
@@ -70,14 +162,15 @@ JCOP不开发自己的IDE,也不开发插件,只作为一个普通的标准的we
 ** 提高速度
 JCOP采用元数据驱动代码生成的方式,生成数据库脚本、Java代码、页面模板,配置文件等所有文件(可以再加入任何你需要生成的文件).
 从而使您从枯燥繁琐的仪式性的Java代码（如Model,常规CRUD）中解放出来,专注于核心的业务逻辑.
-JCOP平台底层是一个设计良好的框架，通过向导的形式平台可以提供对不同框架间的一站式快速搭建。
+JCOP平台底层是一个设计良好的框架，可以提供对不同框架间的一站式快速搭建。
 JCOP的关注点主要集中在如何降低初学者的上手难度,简化平台本身的学习成本,不断优化内核如何让整个团队能在最短时间内掌握整个平台.
 次要点是各种优秀常用框架进行融合，使其更适合方便的使用(这点上希望更多其他更加专业的用户提供技术支持,编写模板)
 
 ** 降低风险
+
 JCOP是在同类平台中风险最低的!
-完全开源的没有任何屏障,可以完全被控制
-所有生成代码全部可见，JCOP不制造规范,本身提供JFinal风格的项目规范,任何规范也可以轻松融入平台(如SSH三层架构风格,如果你执着于它...)
+完全开源的没有任何屏障,可以非常容易地完全被控制.
+所有生成代码全部可见,JCOP不制造规范,本身提供JFinal风格的项目规范,任何规范也可以轻松融入平台(如SSH三层架构风格,如果你执着于它...)
 管理成本，人员的流动尤其是核心人员的流动一直是企业面临的棘手问题，而对该问题的最好解决方式是在项目管理与开发上的标准化
 
 JCOP为开发的标准化提供了一个基础，原因在于代码生成无论是代码样式、风格及配置文件的规则完全相同。
@@ -90,13 +183,28 @@ JCOP不想造轮子，也不想提出自己的开发规范(硬要说有规范那
 打开浏览器,访问一个普通的后台管理项目就能快速生成代码并在线查看源码和预览项目,
 像一个基于web的IDE一样简单实用就是JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 
-
 ** 内核简单
 代码量极少,不到2000行代码,稍微有经验的开发者都能很快掌握整个生成平台的内核.
 
 ** 扩展简单
-由于内核简单,抽象层次不多但扩展点较多,想要加入自己的业务模板,开发规范都是非常的容易和符合直觉.
+由于内核简单,抽象层次不多但扩展点较多,想要加入自己的业务模板,开发规范都是非常容易且符合直觉.
 
-* 如果构建 How to build (敬请期待...)
 
-* 如何扩展How to expand(敬请期待...)
+* 如何扩展(敬请期待...)
+** 修改已有模板
+** 新增模板
+** 设计自己的架构规范
+
+* jcop架构设计(敬请期待...)
+** 核心概念
+*** Project
+*** Entity
+*** Field
+*** Groups
+*** Task
+** 扩展点
+*** ConfigDataProvider
+*** Task
+*** Groups
+
+
