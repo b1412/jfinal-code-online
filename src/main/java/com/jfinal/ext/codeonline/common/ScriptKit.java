@@ -12,7 +12,7 @@ public class ScriptKit {
         ScriptEngineManager factory = new ScriptEngineManager();
         ScriptEngine scriptEngine = factory.getEngineByName("groovy");
         Set<Map.Entry<String, Object>> set = root.entrySet();
-        Object result = null;
+        Object result ;
         for (Map.Entry<String, Object> item : set) {
             String key = item.getKey();
             Object val = item.getValue();

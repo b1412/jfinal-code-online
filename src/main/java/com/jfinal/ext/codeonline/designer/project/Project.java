@@ -66,9 +66,9 @@ public class Project extends ModelExt<Project> {
 
     private void exec2(Task task, List<Record> results, Map<String, Object> root) {
         Record result = new Record();
-        File floderDir = new File(ScriptKit.exec(task.getStr("folder"), root).toString());
-        if (!floderDir.exists()) {
-            floderDir.mkdirs();
+        File folderDir = new File(ScriptKit.exec(task.getStr("folder"), root).toString());
+        if (!folderDir.exists()) {
+            folderDir.mkdirs();
         }
         List<TaskParam> params = task.getTaskParams();
         for (int i = 0; i < params.size(); i++) {
@@ -97,64 +97,14 @@ public class Project extends ModelExt<Project> {
     }
 
     public void start() {
-        String rootDir = Config.getTargetPath() + FS + getName();
-        String sqlFilePath = rootDir + FS + "sql" + FS + getName() + ".sql";
-        AntKit.sqlScript(Config.getConfigDataProvider().findDriver(getDbType()),
-                getJdbcurl(), getUsername(), getPassword(), sqlFilePath);
+        String rootDir = Config.getTargetPath() + FS + get("name");
+        String sqlFilePath = rootDir + FS + "sql" + FS + get("name") + ".sql";
+        AntKit.sqlScript(Config.getConfigDataProvider().findDriver(getStr("dbType")),
+                getStr("jdbcurl"), getStr("username"), getStr("password"), sqlFilePath);
 
     }
 
     public Groups getGroups() {
         return Groups.DAO.findById(getInt("groups_id"));
     }
-
-    public String getSrc() {
-        return get("src");
-    }
-
-    public String getDbType() {
-        return get("dbType");
-    }
-
-    public String getJdbcurl() {
-        return get("jdbcurl");
-    }
-
-    public String getUsername() {
-        return get("username");
-    }
-
-    public String getPassword() {
-        return get("password");
-    }
-
-    public String getPackageName() {
-        return get("packageName");
-    }
-
-    public String getViewEngine() {
-        return get("viewEngine");
-    }
-
-    public String getName() {
-        return get("name");
-    }
-
-    public String getIp() {
-        return get("ip");
-    }
-
-    public String getDesc() {
-        return get("desc");
-    }
-
-    public String getPort() {
-        return get("port");
-    }
-
-    public String getViewFramework() {
-        return get("viewFramework");
-    }
-
-
 }

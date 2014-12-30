@@ -13,8 +13,14 @@
 
             <p>
                 <label>项目描述：</label>
-                <input name="project.desc" class="required" type="text" size="30" value="${project.desc}"
-                       alt="请输入内容"/>
+                <input name="project.description" class="required" type="text" size="30" value="${project.description}"/>
+            </p>
+            <p>
+                <label>构建类型：</label>
+                <select class="combox" name="project.management">
+                        <option <#if "gradle"==project.management>selected="selected"</#if> value="gradle">gradle</option>
+                        <option <#if "maven"==project.management>selected="selected"</#if> value="maven">maven</option>
+                </select>
             </p>
             <p>
                 <label>视图类型：</label>

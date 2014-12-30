@@ -41,16 +41,16 @@ public class TaskKit {
      * @return 生成文件的路径
      */
     public static String processTemplate(Map<String, Object> root, Task task) {
-
+        Project project = (Project) root.get("project");
         List<TaskParam> params = task.getTaskParams();
         for (TaskParam param : params) {
             if (StrKit.isBlank(param.getStr("name"))) continue;
             String value = param.getStr("expression");
             templateHelp.put(param.getStr("name"), ScriptKit.exec(value, root));
         }
-        String templetFilename = ScriptKit.exec(task.getStr("templatepath"), root).toString();
+        String templetFilename = project.getGroups().getStr("name") + FS + ScriptKit.exec(task.getStr("templatepath"), root).toString();
         String folder = ScriptKit.exec(task.getStr("folder"), root).toString();
-        folder = Config.getTargetPath() + FS + ((Project) root.get("project")).getStr("name") + File.separator + folder;
+        folder = Config.getTargetPath() + FS + project.getStr("name") + File.separator + folder;
         File floderDir = new File(folder);
         if (!floderDir.exists()) {
             floderDir.mkdirs();
@@ -73,5 +73,14 @@ public class TaskKit {
         return StrKit.firstCharToUpperCase(str);
     }
 
+    public static String buildFileName(String str) {
+        if ("gradle".equals(str)) {
+            return "build.gradle";
+        } else if ("maven".equals(str)) {
+            return "pom.xml";
+        } else {
+            throw new IllegalArgumentException("Not support " + str);
+        }
+    }
 
 }

@@ -16,7 +16,6 @@ import com.jfinal.plugin.activerecord.tx.TxByRegex;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.render.ViewType;
 
-import java.io.File;
 import java.io.IOException;
 
 import static com.jfinal.ext.codeonline.core.Constants.FS;
@@ -33,13 +32,16 @@ public class CodeConfig extends JFinalConfig {
 
     private void afterConfigConstant() {
         DruidPlugin druidPlugin = new DruidPlugin(getProperty("jdbcUrl"), getProperty("username"), getProperty(
-                "password").trim(),getProperty("driver"));
-        ActiveRecordPlugin arp = new ActiveRecordPlugin("init",druidPlugin);
+                "password").trim(), getProperty("driver"));
+        ActiveRecordPlugin arp = new ActiveRecordPlugin("init", druidPlugin);
         druidPlugin.start();
         arp.start();
-        String sqlFile = PathKit.getRootClassPath()+ File.separator+"jfinal_code.sql";
-        AntKit.sqlScript(getProperty("driver"),getProperty("jdbcUrl"), getProperty("username"), getProperty(
-                "password").trim(),sqlFile);
+        String ddl = PathKit.getRootClassPath() + FS + "jfinal_code_ddl.sql";
+        String metadata = PathKit.getRootClassPath() + FS + "jfinal_code_metadata.sql";
+        AntKit.sqlScript(getProperty("driver"), getProperty("jdbcUrl"), getProperty("username"), getProperty(
+                "password").trim(), ddl);
+        AntKit.sqlScript(getProperty("driver"), getProperty("jdbcUrl"), getProperty("username"), getProperty(
+                "password").trim(), metadata);
         druidPlugin.stop();
         arp.stop();
 
@@ -55,7 +57,7 @@ public class CodeConfig extends JFinalConfig {
     @Override
     public void configPlugin(Plugins me) {
         DruidPlugin druidPlugin = new DruidPlugin(getProperty("jdbcUrl"), getProperty("username"), getProperty(
-                "password").trim(),getProperty("driver"));
+                "password").trim(), getProperty("driver"));
         AutoTableBindPlugin arp = new AutoTableBindPlugin(druidPlugin, SimpleNameStyles.LOWER_UNDERLINE);
         arp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
         me.add(druidPlugin);
@@ -81,6 +83,6 @@ public class CodeConfig extends JFinalConfig {
     public void afterJFinalStart() {
         Config.setConfigDataProvider(new DbConfigDataProvider());
         Config.setTargetPath(PathKit.getWebRootPath() + FS + "target");
-        Config.setTemplatePath(PathKit.getWebRootPath()+FS+"templates");
+        Config.setTemplatePath(PathKit.getWebRootPath() + FS + "templates");
     }
 }

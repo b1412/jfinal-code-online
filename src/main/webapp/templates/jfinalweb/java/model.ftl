@@ -13,7 +13,7 @@ public class ${entityName} extends Model<${entityName}> {
 
 	public static final ${entityName} DAO = new ${entityName}();
 	
-	<#if _accessor == 0>
+	<#if _accessor == 1>
 	<#list entity.fields as field>
 	public ${field.fieldType?lower_case?cap_first} get${field.name?cap_first}(){
 		return get("${field.name}");

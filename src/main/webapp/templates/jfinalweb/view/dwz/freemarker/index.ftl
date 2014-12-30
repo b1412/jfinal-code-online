@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
-<title>${project.desc}管理系统</title>
+<title>${project.description}管理系统</title>
 
 <link href="<#noparse>${PATH}</#noparse>/themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="<#noparse>${PATH}</#noparse>/themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -82,24 +82,28 @@ $(function(){
 	<div id="layout">
 		<div id="header">
 			<div class="headerNav">
-				<!--a class="logo" href="http://j-ui.com">标志</a>->
 				<ul class="nav">
-					<li><a href="login_dialog.html" target="dialog">登陆</a></li>
-					<li><a href="changepwd.html" target="dialog" width="600">设置</a></li>
-					<li><a href="login.html">退出</a></li>
 				</ul>
 				<ul class="themeList" id="themeList">
-					<li theme="default"><div class="selected">蓝色</div></li>
-					<li theme="green"><div>绿色</div></li>
-					<!--<li theme="red"><div>红色</div></li>-->
-					<li theme="purple"><div>紫色</div></li>
-					<li theme="silver"><div>银色</div></li>
-					<li theme="azure"><div>天蓝</div></li>
+					<li theme="default">
+						<div class="selected">蓝色</div>
+					</li>
+					<li theme="green">
+						<div>绿色</div>
+					</li>
+					<li theme="purple">
+						<div>紫色</div>
+					</li>
+					<li theme="silver">
+						<div>银色</div>
+					</li>
+					<li theme="azure">
+						<div>天蓝</div>
+					</li>
 				</ul>
 			</div>
 		</div>
-		
-		<!-- here is menu -->
+
 		<#noparse>
 		<#include "menu.html">
 		</#noparse>
@@ -123,7 +127,7 @@ $(function(){
 					<div class="page unitBox">
 						
 						<div class="pageFormContent" layoutH="80" style="margin-right:1px">
-						    欢迎来到${project.desc}管理系统
+						    欢迎来到${project.description}管理系统
 						</div>
 					</div>
 				</div>
@@ -132,6 +136,6 @@ $(function(){
 
 	</div>
 
-	<div id="footer">Copyright &copy; 2010 <a href="demo_page2.html" target="dialog">DWZ团队</a> Tel：110</div>
+	<div id="footer">Copyright &copy; 2015 <a href="http://kidzhou.me" target="dialog">kidzhou.me</a></div>
 </body>
 </html>

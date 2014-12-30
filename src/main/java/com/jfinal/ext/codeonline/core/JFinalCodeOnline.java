@@ -20,7 +20,7 @@ public class JFinalCodeOnline {
     private Project project;
 
 
-    public JFinalCodeOnline( Project project) {
+    public JFinalCodeOnline(Project project) {
         this.project = project;
     }
 
@@ -56,8 +56,8 @@ public class JFinalCodeOnline {
     }
 
     private void copyViewFramework(File baseDir) {
-        File view = new File(PathKit.getWebRootPath() + FS + "templates" + FS + "common" + FS + "view" + FS + project.getViewFramework() + FS
-                + project.getViewEngine());
+        File view = new File(PathKit.getWebRootPath() + FS + "templates" + FS + project.getGroups().getStr("name") + FS + "common" + FS + "view" + FS + project.get("viewFramework") + FS
+                + project.get("viewEngine"));
         try {
             FileUtils.copyDirectory(view, new File(baseDir + FS + "src" + FS + "main" + FS + "webapp"));
         } catch (IOException e) {

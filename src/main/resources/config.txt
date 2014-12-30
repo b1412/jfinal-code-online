@@ -1,4 +1,4 @@
-jdbcUrl = jdbc:h2:jfinal_code;DATABASE_TO_UPPER=false
+jdbcUrl = jdbc:h2:./jfinal_code;DATABASE_TO_UPPER=false
 driver=org.h2.Driver
 username=sa
 password=

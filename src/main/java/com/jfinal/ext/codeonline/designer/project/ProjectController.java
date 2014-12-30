@@ -54,8 +54,8 @@ public class ProjectController extends Controller {
         Project project = Project.DAO.findById(getParaToInt(0));
         Groups groups = project.getGroups();
         setAttr("project", project);
-        setAttr("paths", new JFinalCodeOnline(project)
-                .run(groups));
+        new JFinalCodeOnline(project) .run(groups);
+        setAttr("root", new File(Config.getTargetPath() + File.separator + project.getStr("name")));
     }
 
     public void viewFile() throws IOException {
@@ -71,6 +71,7 @@ public class ProjectController extends Controller {
         // TODO 重定向到....
         renderText("项目启动");
     }
+
     public void download() {
         Project project = Project.DAO.findById(getPara());
         String projectName = project.getStr("name");
