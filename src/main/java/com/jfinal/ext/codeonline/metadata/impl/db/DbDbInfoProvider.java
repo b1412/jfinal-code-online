@@ -1,13 +1,13 @@
 package com.jfinal.ext.codeonline.metadata.impl.db;
 
 import com.google.common.collect.Lists;
-import com.jfinal.ext.codeonline.metadata.DbInfoProvider;
+import com.jfinal.ext.codeonline.metadata.IDbInfoProvider;
 import com.jfinal.ext.codeonline.metadata.impl.db.model.DbInfo;
 import com.jfinal.plugin.activerecord.Db;
 
 import java.util.List;
 
-public class DbDbInfoProvider implements DbInfoProvider {
+public class DbDbInfoProvider implements IDbInfoProvider {
 
     @Override
     public String findDriver(String dbType) {

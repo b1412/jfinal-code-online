@@ -11,6 +11,7 @@
 #+LATEX_CLASS: cn-article
 
 JFinal-Code-Online Platform 是一个基于JFinal的业务基础代码生成平台，本身是个web项目,其核心设计目标是轻量,易学,易扩展.
+一句话,轻松定制你自己的代码生成器!!!
 
 * Inforduction
 JFinal-Code-Online Platform (以下简称JCOP)是我们的

@@ -1,12 +1,12 @@
 package com.jfinal.ext.codeonline.metadata.impl.db;
 
 import com.google.common.collect.Lists;
-import com.jfinal.ext.codeonline.metadata.ViewFrameworkProvider;
+import com.jfinal.ext.codeonline.metadata.IViewFrameworkProvider;
 import com.jfinal.ext.codeonline.metadata.impl.db.model.ViewFramework;
 
 import java.util.List;
 
-public class DbViewFrameworkProvider implements ViewFrameworkProvider {
+public class DbViewFrameworkProvider implements IViewFrameworkProvider {
     @Override
     public List<String> viewFrameWorks() {
         List<String> result = Lists.newArrayList();

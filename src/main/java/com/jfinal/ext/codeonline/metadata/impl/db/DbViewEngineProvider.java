@@ -1,12 +1,12 @@
 package com.jfinal.ext.codeonline.metadata.impl.db;
 
 import com.google.common.collect.Lists;
-import com.jfinal.ext.codeonline.metadata.ViewEngineProvider;
+import com.jfinal.ext.codeonline.metadata.IViewEngineProvider;
 import com.jfinal.ext.codeonline.metadata.impl.db.model.ViewEngine;
 
 import java.util.List;
 
-public class DbViewEngineProvider implements ViewEngineProvider {
+public class DbViewEngineProvider implements IViewEngineProvider {
     @Override
     public List<String> viewEngines() {
         List<String> result = Lists.newArrayList();

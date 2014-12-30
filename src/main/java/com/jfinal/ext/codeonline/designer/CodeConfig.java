@@ -12,6 +12,7 @@ import com.jfinal.ext.route.AutoBindRoutes;
 import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.CaseInsensitiveContainerFactory;
+import com.jfinal.plugin.activerecord.SqlReporter;
 import com.jfinal.plugin.activerecord.tx.TxByRegex;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.render.ViewType;
@@ -60,6 +61,7 @@ public class CodeConfig extends JFinalConfig {
                 "password").trim(), getProperty("driver"));
         AutoTableBindPlugin arp = new AutoTableBindPlugin(druidPlugin, SimpleNameStyles.LOWER_UNDERLINE);
         arp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
+        SqlReporter.setLogger(true);
         me.add(druidPlugin);
         me.add(arp);
     }

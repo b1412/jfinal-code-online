@@ -1,6 +1,6 @@
 package com.jfinal.ext.codeonline.core;
 
-import com.jfinal.ext.codeonline.metadata.ConfigDataProvider;
+import com.jfinal.ext.codeonline.metadata.IConfigDataProvider;
 import com.jfinal.ext.codeonline.metadata.impl.db.DbConfigDataProvider;
 import com.jfinal.kit.PathKit;
 
@@ -8,15 +8,15 @@ import static com.jfinal.ext.codeonline.core.Constants.FS;
 
 public class Config {
 
-    static private ConfigDataProvider configDataProvider = new DbConfigDataProvider();
+    static private IConfigDataProvider configDataProvider = new DbConfigDataProvider();
     static private String templatePath = PathKit.getWebRootPath() + FS + "template";
     static private String targetPath = PathKit.getWebRootPath() + FS + "target";
 
-    public static ConfigDataProvider getConfigDataProvider() {
+    public static IConfigDataProvider getConfigDataProvider() {
         return configDataProvider;
     }
 
-    public static void setConfigDataProvider(ConfigDataProvider configDataProvider) {
+    public static void setConfigDataProvider(IConfigDataProvider configDataProvider) {
         Config.configDataProvider = configDataProvider;
     }
 

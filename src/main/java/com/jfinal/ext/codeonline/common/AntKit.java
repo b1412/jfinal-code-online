@@ -27,15 +27,6 @@ public class AntKit {
         copy.execute();
     }
 
-    public static void main(String[] args) {
-        String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/demo";
-        String user = "root";
-        String passwd = "root";
-        String sqlFilePath = "/home/kid/workspace/demo/demo.sql";
-        // copy("/home/kid/workspace/demo/templates.build", "/home/kid/workspace/demo/config");
-        sqlScript(driver, url, user, passwd, sqlFilePath);
-    }
 
     public static void javac(String srcdir, String descDir, String classpath) {
         Javac javac = new Javac();

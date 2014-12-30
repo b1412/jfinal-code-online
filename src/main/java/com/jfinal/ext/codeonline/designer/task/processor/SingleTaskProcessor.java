@@ -8,9 +8,6 @@ import com.jfinal.ext.codeonline.designer.task.Task;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by kid on 14-12-21.
- */
 public class SingleTaskProcessor implements ITaskProcessor {
     @Override
     public List<String> run(Project project, Task task, Map<String, Object> root) {

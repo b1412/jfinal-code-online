@@ -33,7 +33,8 @@ jcop.war下载地址
 源码地址:
 
    git clone https://github.com/b1412/jfinal-code-online.git
-      or
+
+
    git clone https://git.oschina.net/zhouleib1412/jfinal-code-online.git
 
 如果你是gradle用户(2.0以上),请直接执行gradle war构建项目.
@@ -122,19 +123,20 @@ jcop.war下载地址
 #+ATTR_HTML: width="800px"
 [[./doc/img/code.jpg]]
 
-** 在线预览项目(敬请期待...)
+** 在线预览项目,一边生成一边看效果(不依赖IDE)(敬请期待...)
 
-** 基于生成的代码继续开发
+** 基于生成的代码继续开发,一边生成一边看效果(依赖IDE)
 
 - 用你熟悉的IDE(eclipse,idea等)导入刚生成的项目 /src/main/webapp/target/YourProject
 
-- 根据你选择生成的gradle或者mvn项目本身的方式配置好项目,继续开发
+- 根据你选择的构建方式(gradle或maven)本身配置的方式配置好项目,按照JFinal推荐的方式进行开发,(JFinal手册第一章http://www.jfinal.com/download?file=jfinal-1.8-manual.pdf)
+就能一边用jcop生成代码,一边看到效果!
 
 
 
 * 反向工程(敬请期待...)
 如果已经设计好了数据库,从数据库schema导入生成project
-**
+
 
 * JCOP为谁而设计?
 
@@ -168,12 +170,11 @@ JCOP的目的就是通过平台模型化(生成器模板)常用功能,CURD,数�
 
 ** 完全开放
 
-JCOP源代码完全开发,生成器模板完全开放,可以轻松的加入自己的模板,可以定制适合自己团队的开发规范.
-所以当使用JCOP时候并不会抛弃团队以前的积累和技术架构,而是为已有的技术积累引入了一个快速建模的工具.
-JCOP也是一个JFinal开源框架很好的学习工具，因为它本身是一个设计良好的JFinal项目.
-虽然目前仅仅支持视图引擎freemarker，jsp，表现层框架dwz,数据库mysql,
-但是熟悉其他技术的开发者可以轻松的将自己熟悉的框架技术加入平台．这也是JCOP设计的核心目标之一．
-不同与一些以模型为驱动的业务平台产品有自己的开发规则、脚本语言与操作方式成为了一个自封闭的系统。
+JCOP源代码完全开发,生成器模板完全开放,可以轻松的加入自己的模板,可以定制适合自己团队的开发规范.所以当使用JCOP
+时候并不会抛弃团队以前的积累和技术架构,而是为已有的技术积累引入了一个快速建模的工具.JCOP也是一个JFinal开源框
+架很好的学习工具，因为它本身是一个设计良好的JFinal项目.虽然目前支持的技术有限,但是熟悉其他技术的开发者可以轻
+松的将自己熟悉的框架技术加入平台．这也是JCOP设计的核心目标之一.不同与一些以模型为驱动的业务平台产品有自己的
+开发规则、脚本语言与操作方式成为了一个自封闭的系统。
 
 ** 不依赖IDE
 
@@ -256,3 +257,9 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
  [[http://kidzhou.me/blog/2014/12/28/jfinal-code-online-platformde-dan-sheng-yuan-yin]]
 对JCOP在线项目生成平台的展望
  [[http://kidzhou.me/blog/2014/12/28/dui-jcopzai-xian-xiang-mu-sheng-cheng-ping-tai-de-zhan-wang]]
+
+* 更多支持
+
+QQ群 434473532
+官方网站 code.jfinal.com
+

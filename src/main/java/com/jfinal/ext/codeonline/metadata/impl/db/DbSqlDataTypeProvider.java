@@ -1,14 +1,14 @@
 package com.jfinal.ext.codeonline.metadata.impl.db;
 
 import com.google.common.collect.Lists;
-import com.jfinal.ext.codeonline.metadata.DataInfoProvider;
+import com.jfinal.ext.codeonline.metadata.IDataInfoProvider;
 import com.jfinal.ext.codeonline.metadata.impl.db.model.DataType;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Db;
 
 import java.util.List;
 
-public class DbSqlDataTypeProvider implements DataInfoProvider {
+public class DbSqlDataTypeProvider implements IDataInfoProvider {
 
     @Override
     public List<String> fieldTypes(String dbType) {

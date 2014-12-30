@@ -4,15 +4,15 @@ import com.jfinal.ext.codeonline.metadata.*;
 
 import java.util.List;
 
-public class DbConfigDataProvider implements ConfigDataProvider {
+public class DbConfigDataProvider implements IConfigDataProvider {
 
-    private ViewFrameworkProvider viewFrameworkProvider = new DbViewFrameworkProvider();
+    private IViewFrameworkProvider viewFrameworkProvider = new DbViewFrameworkProvider();
 
-    private ViewEngineProvider viewEngineProvider = new DbViewEngineProvider();
+    private IViewEngineProvider viewEngineProvider = new DbViewEngineProvider();
 
-    private DbInfoProvider dbInfoProvider = new DbDbInfoProvider();
+    private IDbInfoProvider dbInfoProvider = new DbDbInfoProvider();
 
-    private DataInfoProvider dataTypeProvider = new DbSqlDataTypeProvider();
+    private IDataInfoProvider dataTypeProvider = new DbSqlDataTypeProvider();
 
     @Override
     public List<String> viewFrameworks() {

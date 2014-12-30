@@ -3,6 +3,6 @@ package com.jfinal.ext.codeonline.metadata;
 import java.util.List;
 
 
-public interface ViewFrameworkProvider {
+public interface IViewFrameworkProvider {
     List<String> viewFrameWorks();
 }

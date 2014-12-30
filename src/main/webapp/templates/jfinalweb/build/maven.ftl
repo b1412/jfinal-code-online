@@ -15,13 +15,15 @@
                 <directory>src/main/webapp</directory>
             </resource>
         </resources>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>
+                1.6</source>
+                <target>1.6</target>
+            </configuration>
             </plugin>
         </plugins>
     </build>

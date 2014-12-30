@@ -1,12 +1,10 @@
 package com.jfinal.ext.codeonline.designer.project;
 
 import com.jfinal.core.Controller;
-import com.jfinal.ext.codeonline.common.ZipKit;
 import com.jfinal.ext.codeonline.core.Config;
 import com.jfinal.ext.codeonline.core.JFinalCodeOnline;
 import com.jfinal.ext.codeonline.designer.group.Groups;
 import com.jfinal.ext.render.DwzRender;
-import com.jfinal.kit.PathKit;
 import com.jfinal.plugin.activerecord.Page;
 import de.java2html.Java2Html;
 import de.java2html.javasource.JavaSource;
@@ -64,24 +62,4 @@ public class ProjectController extends Controller {
         renderHtml(Java2Html.convertToHtmlPage(javaSource.getCode()));
 
     }
-
-    public void start() {
-        Project proj = Project.DAO.findById(getPara(0));
-        proj.start();
-        // TODO 重定向到....
-        renderText("项目启动");
-    }
-
-    public void download() {
-        Project project = Project.DAO.findById(getPara());
-        String projectName = project.getStr("name");
-        String source_folder = PathKit.getWebRootPath() + "/target/" + projectName;
-        String output_zip_file = source_folder + "/" + projectName + ".zip";
-        new File(output_zip_file).delete();
-        ZipKit appZip = new ZipKit();
-        appZip.generateFileList(new File(source_folder));
-        appZip.zipIt(output_zip_file);
-        renderFile(new File(output_zip_file));
-    }
-
 }

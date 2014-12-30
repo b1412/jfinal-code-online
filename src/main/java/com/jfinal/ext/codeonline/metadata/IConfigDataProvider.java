@@ -3,7 +3,7 @@ package com.jfinal.ext.codeonline.metadata;
 import java.util.List;
 
 
-public interface ConfigDataProvider {
+public interface IConfigDataProvider {
 
     public List<String> viewFrameworks();
 
