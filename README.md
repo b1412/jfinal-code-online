@@ -1,5 +1,11 @@
 
-JFinal-Code-Online Platform 是一个基于JFinal的业务基础代码生成平台，本身是个web项目,其核心设计目标是轻量,易学,易扩展.
+定制属于自己的Java代码生成器(当然其他语言也可以),从JFinal-Code-Online Platform(JCOP)开始!!
+
+JCOP是一个轻量级的代码生成器内核,可加入一切自己想生成的文件的模板,绝对的灵活自由,你值得拥有!!
+
+JCOP基于JFinal开发,本身是一个标准java web项目，不依赖任何IDE，其核心设计目标是学习简单、功能强大、轻量级、易扩展.
+
+代码量不到2000行,实现了模板生成器的核心功能.
 
 Features
 ===
