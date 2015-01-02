@@ -13,14 +13,14 @@ import java.util.List;
 
 import static com.jfinal.ext.codeonline.core.Constants.FS;
 
-public class JFinalCodeOnline {
+public class CodeOnline {
 
-    private static final Logger LOG = Logger.getLogger(JFinalCodeOnline.class);
+    private static final Logger LOG = Logger.getLogger(CodeOnline.class);
 
     private Project project;
 
 
-    public JFinalCodeOnline(Project project) {
+    public CodeOnline(Project project) {
         this.project = project;
     }
 
