@@ -73,22 +73,24 @@ idea用户执行
  访问项目主页 <a href="http://localhost:8080/jcop">http://localhost:8080/jcop</a>
  (8080为容器默认端口,可以自己修改),显示如下
 
-<img src="./doc/img/index.jpg git  style="width: 200px;"/>
+<img src="./doc/img/index.jpg" style="width: 200px;"/>
 
 创建项目
 ---
 
 点击左侧菜单的"project管理",显示如下图:
 
-[[./doc/img/project_index.jpg]]
+<img src="./doc/img/project_index.jpg" style="width: 200px;"/>
 
 点击project管理列表页工具栏上的"添加",填入测试数据,显示如下图:
 
-[[./doc/img/project_add.jpg]]
+<img src="./doc/img/project_add.jpg" style="width: 200px;"/>
+
 
 保存测试数据回到"project管理"列表页,显示如下图:
 
-[[./doc/img/project_new_index.jpg]]
+<img src="./doc/img/project_new_index.jpg" style="width: 200px;"/>
+
 
 创建实体
 ---
@@ -96,15 +98,15 @@ idea用户执行
 
 点击"project管理"列表页工具栏上的"编辑实体",填入测试数据,显示如下图:
 
-[[./doc/img/entity_index.jpg]]
+<img src="./doc/img/entity_index.jpg" style="width: 200px;"/>
 
 点击"编辑实体"列表页工具栏上的"添加",填入测试数据,显示如下图:
 
-[[./doc/img/entity_add.jpg]]
+<img src="./doc/img/entity_add.jpg" style="width: 200px;"/>
 
 保存测试数据回到"编辑实体"列表页,显示如下图:
 
-[[./doc/img/entity_new_index.jpg]]
+<img src="./doc/img/entity_new_index.jpg" style="width: 200px;"/>
 
 创建字段
 ---
@@ -112,22 +114,25 @@ idea用户执行
 
 点击"编辑实体"列表页工具栏上的"编辑字段",填入测试数据,显示如下图:
 
-[[./doc/img/field_index.jpg]]
+<img src="./doc/img/field_index.jpg" style="width: 200px;"/>
+
 
 点击"编辑字段"列表页工具栏上的"添加",填入测试数据,显示如下图:
+<img src="./doc/img/field_add.jpg" style="width: 200px;"/>
 
-[[./doc/img/field_add.jpg]]
 
 保存测试数据回到"编辑字段"列表页,显示如下图:
 
-[[./doc/img/field_new_index.jpg]]
+<img src="./doc/img/field_new_index.jpg" style="width: 200px;"/>
+
 
 生成项目
 ---
 
 回到"project管理"列表页,选择刚编辑的项目,点击"生成项目",显示如下图:
 
-[[./doc/img/create.jpg]]
+<img src="./doc/img/create.jpg" style="width: 200px;"/>
+
 
 生成项目代码在:
 
@@ -138,7 +143,8 @@ idea用户执行
 
 双击任何一个生成的文件,则可在线查看源代码
 
-[[./doc/img/code.jpg]]
+<img src="./doc/img/code.jpg" style="width: 200px;"/>
+
 
 在线预览项目,一边生成一边看效果(不依赖IDE)(敬请期待...)
 ---
