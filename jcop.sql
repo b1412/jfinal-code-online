@@ -24,12 +24,12 @@ DROP TABLE IF EXISTS `data_type`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `data_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `dbType` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fieldType` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `columnType` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `javaType` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dbType` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fieldType` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `columnType` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `javaType` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,10 +51,10 @@ DROP TABLE IF EXISTS `db_info`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `db_info` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `type` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '????',
-  `driverClass` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '???',
+  `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `driverClass` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `db_info` (
 
 LOCK TABLES `db_info` WRITE;
 /*!40000 ALTER TABLE `db_info` DISABLE KEYS */;
-INSERT INTO `db_info` VALUES (2,'mysql','com.mysql.jdbc.Driver');
+INSERT INTO `db_info` VALUES (1,'mysql','com.mysql.jdbc.Driver');
 /*!40000 ALTER TABLE `db_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,12 +75,12 @@ DROP TABLE IF EXISTS `entity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `entity` (
-  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '??',
-  `label` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '??',
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `label` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '??',
   `projectId` int(10) DEFAULT NULL COMMENT '????',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `entity` (
 
 LOCK TABLES `entity` WRITE;
 /*!40000 ALTER TABLE `entity` DISABLE KEYS */;
-INSERT INTO `entity` VALUES (1,'student','??',1),(4,'organization','??',1),(5,'blog','??',2),(7,'blog','1',1);
+INSERT INTO `entity` VALUES (1,'blog','博客',1);
 /*!40000 ALTER TABLE `entity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,17 +102,16 @@ DROP TABLE IF EXISTS `field`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `field` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '???',
-  `label` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '??',
-  `isPrimaryKey` tinyint(4) DEFAULT '0' COMMENT '?????',
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `label` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `isPrimaryKey` tinyint(4) DEFAULT '0',
   `isSearchable` tinyint(4) DEFAULT '1' COMMENT '????',
-  `validator` int(10) DEFAULT NULL COMMENT '????',
-  `longness` int(10) DEFAULT '0' COMMENT '??',
-  `scale` int(11) DEFAULT NULL COMMENT '??',
-  `type` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '字段类型',
-  `entityId` int(10) DEFAULT NULL COMMENT '????',
+  `longness` int(10) DEFAULT '32' COMMENT '??',
+  `scale` int(11) DEFAULT NULL,
+  `type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `entityId` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +120,7 @@ CREATE TABLE `field` (
 
 LOCK TABLES `field` WRITE;
 /*!40000 ALTER TABLE `field` DISABLE KEYS */;
-INSERT INTO `field` VALUES (1,'id','id',1,0,NULL,11,0,'Integer',1),(2,'name','??',0,1,NULL,32,0,'String',1),(3,'age','??',0,1,NULL,11,NULL,'Integer',1),(4,'birthday','??',0,1,0,0,0,'Date',1),(5,'salary','??',0,1,0,11,2,'Float',1),(6,'id','id',1,0,NULL,0,NULL,'Integer',10),(7,'id','id',1,0,NULL,0,NULL,'Integer',11),(8,'id','id',1,0,NULL,0,NULL,'Integer',12),(9,'id','id',1,0,NULL,0,NULL,'Integer',13),(10,'id','id',0,0,NULL,0,NULL,NULL,3),(11,'id','id',1,0,NULL,0,NULL,'Integer',4),(12,'name','??',0,1,NULL,0,NULL,'String',4),(13,'id','id',1,0,NULL,0,NULL,'Integer',5),(14,'title','??',0,1,NULL,0,NULL,'String',5),(18,'id','id',1,0,NULL,0,NULL,'Integer',6),(19,'2222','22',0,1,NULL,0,NULL,'Integer',4),(20,'id','id',1,1,NULL,0,NULL,'Integer',7),(21,'text','11',0,1,NULL,0,NULL,'Richtext',7);
+INSERT INTO `field` VALUES (13,'id','id',1,0,0,NULL,'Integer',1),(14,'title','标题',0,1,32,NULL,'String',1),(22,'publishTime','发布时间',0,1,0,NULL,'Datetime',1),(23,'content','内容',0,0,0,NULL,'Richtext',1),(24,'score','评分',0,1,32,NULL,'Float',1);
 /*!40000 ALTER TABLE `field` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,11 +132,11 @@ DROP TABLE IF EXISTS `groups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '???',
-  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL COMMENT '?????',
-  `remark` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '????',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `remark` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +161,7 @@ CREATE TABLE `groups_task_relation` (
   `groupsId` int(11) DEFAULT NULL,
   `taskId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,21 +183,21 @@ DROP TABLE IF EXISTS `project`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `project` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `viewFramework` varchar(20) CHARACTER SET utf8 COLLATE utf8_turkish_ci DEFAULT 'dwz',
-  `ip` varchar(32) COLLATE utf8_unicode_ci DEFAULT '127.0.0.1',
-  `port` varchar(10) COLLATE utf8_unicode_ci DEFAULT '8080',
-  `dbType` varchar(20) COLLATE utf8_unicode_ci DEFAULT 'mysql',
-  `jdbcurl` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci DEFAULT 'root',
-  `password` varchar(20) COLLATE utf8_unicode_ci DEFAULT 'root',
-  `packageName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '??',
-  `viewEngine` varchar(20) COLLATE utf8_unicode_ci DEFAULT 'freemarker',
-  `management` varchar(20) COLLATE utf8_unicode_ci DEFAULT 'gradle',
+  `ip` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT '127.0.0.1',
+  `port` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT '8080',
+  `dbType` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'mysql',
+  `jdbcurl` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'root',
+  `password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'root',
+  `packageName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `viewEngine` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'freemarker',
+  `management` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'gradle',
   `groupsId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,7 +206,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (2,'demo','??','dwz','127.0.0.1','8080','mysql','jdbc:mysql://localhost:3306/demo','root','root','com.leonzhou.test','freemarker','gradle',1);
+INSERT INTO `project` VALUES (1,'demo','生成','dwz','127.0.0.1','8080','mysql','jdbc:mysql://localhost:3306/demo','root','root','com.leonzhou.test','freemarker','gradle',1);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,14 +219,14 @@ DROP TABLE IF EXISTS `task`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `taskname` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `taskType` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `folder` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `filename` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `templatePath` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `taskname` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `taskType` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `folder` varchar(512) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filename` varchar(512) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `templatePath` varchar(512) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `valid` tinyint(1) unsigned DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,11 +248,11 @@ DROP TABLE IF EXISTS `task_param`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `task_param` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `key` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `expression` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `taskId` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `key` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `expression` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `taskId` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -275,9 +274,9 @@ DROP TABLE IF EXISTS `view_engine`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `view_engine` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,9 +298,9 @@ DROP TABLE IF EXISTS `view_framework`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `view_framework` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -323,4 +322,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-04 23:31:55
+-- Dump completed on 2015-01-05  0:37:49
