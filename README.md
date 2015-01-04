@@ -27,7 +27,7 @@ Quick Start
 
 <a href="http://code.jfinal.com/jcop.war">下载jcop.war</a>
 
-<a href="http://code.jfinal.com/jcop.war">下载jcop.sql</a>
+<a href="http://code.jfinal.com/jcop.sql">下载jcop.sql</a>
 
 如果你对源码有兴趣请从github或者oscgit下载源码构建.
 
