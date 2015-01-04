@@ -20,7 +20,7 @@
 			<li class="line">line</li>
 			<li><a class="delete" href="field/delete/{itemId}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
 			<li class="line">line</li>
-			<li><a class="edit" href="field/edit/{itemId}" target="navTab"><span>修改</span></a></li>
+			<li><a class="edit" href="field/edit/{itemId}?entity.id=${entity.id}" target="navTab"><span>修改</span></a></li>
 		</ul>
 	</div>
 	<table class="table" width="100%" layoutH="138">
@@ -47,23 +47,14 @@
 					${item.name}
 				</td>
 				<td>
-					${item.fieldType}
+					${item.type}
 				</td>
 				<td>
 					${item.label}
 				</td>
-				<!--<td>-->
-				<!--${item.isDisplayable}-->
-				<!--</td>-->
 				<td>
 					${item.isSearchable}
 				</td>
-				<!--<td>-->
-					<!--${item.isReadOnly}-->
-				<!--</td>-->
-				<!--<td>-->
-					<!--${item.isHidden}-->
-				<!--</td>-->
 				<td>
 					${item.entity.name}
 				</td>

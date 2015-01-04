@@ -3,7 +3,7 @@
     <form method="post" action="field/save" class="pageForm required-validate"
           onsubmit="return validateCallback(this, navTabAjaxDone);">
         <input type="hidden" name="field.id" value="${field.id}">
-        <input type="hidden" name="field.entity_id" value="${field.entity_id}">
+        <input type="hidden" name="field.entityId" value="${field.entityId}">
 
         <div class="pageFormContent" layoutH="56">
             <p>
@@ -12,9 +12,9 @@
             </p>
             <p>
                 <label>字段类型：</label>
-                <select class="combox" name="field.fieldType">
-                    <#list  fieldTypes as item>
-                        <option <#if item==field.fieldType>selected="selected"</#if> value="${item}">${item}</option>
+                <select class="combox" name="field.type">
+                    <#list  types as item>
+                        <option <#if item==field.type>selected="selected"</#if> value="${item}">${item}</option>
                     </#list>
                 </select>
             </p>
@@ -28,29 +28,10 @@
             </p>
 
             <!--<p>-->
-            <!--<label>是否显示：</label>-->
-            <!--<input name="field.isDisplayable" class="required" type="text" defValue="1"-->
-            <!--value="${field.isDisplayable}"/>-->
-            <!--</p>-->
-
-            <!--<p>-->
             <!--<label>是否主键：</label>-->
             <!--<input name="field.isPrimaryKey" class="required" type="text" defValue="0"-->
             <!--value="${field.isPrimaryKey}"/>-->
             <!--</p>-->
-
-
-            <!--<p>-->
-            <!--<label>是否只读：</label>-->
-            <!--<input name="field.isReadOnly" class="required" type="text" defValue="0"-->
-            <!--value="${field.isReadOnly}"/>-->
-            <!--</p>-->
-
-            <!--<p>-->
-            <!--<label>是否隐藏：</label>-->
-            <!--<input name="field.isHidden" class="required" type="text" defValue="0" value="${field.isHidden}"/>-->
-            <!--</p>-->
-
 
         </div>
         <div class="formBar">

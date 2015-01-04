@@ -3,9 +3,11 @@
 
 JCOP是一个轻量级的代码生成器内核,可加入一切自己想生成的文件的模板,绝对的灵活自由,你值得拥有!!
 
-JCOP基于JFinal开发,本身是一个标准java web项目，不依赖任何IDE，其核心设计目标是学习简单、功能强大、轻量级、易扩展.
+JCOP基于Java,JFinal开发,是一个标准java web项目，使用时不依赖任何IDE，其核心设计目标是学习简单,扩展自由.
 
-代码量不到2000行,实现了模板生成器的核心功能.
+可用任何模板引擎生成一切代码,目前默认提供Java代码生成器,支持JFinal Web风格项目,不久将加入传统的SSH项目生成.
+
+代码量1000余行,实现了模板生成器的核心功能.
 
 Features
 ===
@@ -22,7 +24,10 @@ Quick Start
 构建(或下载)并运行jcop.war
 ---
 
+
 <a href="http://code.jfinal.com/jcop.war">下载jcop.war</a>
+
+<a href="http://code.jfinal.com/jcop.war">下载jcop.sql</a>
 
 如果你对源码有兴趣请从github或者oscgit下载源码构建.
 
@@ -36,13 +41,28 @@ oscgit
 
     git clone https://git.oschina.net/zhouleib1412/jfinal-code-online.git
 
+
 如果你是gradle用户(2.0以上),请直接执行gradle war构建项目.
-如果你没使用grald,windows用户执行 gradlew.bat,linux用户执行gradlew,
-自动下载gralde完成后,执行 gradlew war构建项目,构建成功后如下位置找到war
+
+如果你没使用gralde,执行项目跟路径下的脚本,windows用户执行
+
+      gradlew.bat
+
+linux用户执行
+
+      gradlew
+
+自动下载gralde完成后,执行 gradlew war构建项目(首次构建需要在中心库下载依赖,速度较慢)构建成功后如下位置找到war
 
      build/libs/jcop.war
 
+如果想将项目导入IDE调试,eclipse用户执行
 
+     gradlew eclipse
+
+idea用户执行
+
+     gradlew idea
 
 启动项目
 ---
@@ -53,7 +73,7 @@ oscgit
  访问项目主页 <a href="http://localhost:8080/jcop">http://localhost:8080/jcop</a>
  (8080为容器默认端口,可以自己修改),显示如下
 
-[[./doc/img/index.jpg]]
+<img src="./doc/img/index.jpg git  style="width: 200px;"/>
 
 创建项目
 ---
