@@ -1,10 +1,16 @@
 package com.jfinal.codeonline.ui.dwz;
 
 import com.jfinal.codeonline.core.Config;
-import com.jfinal.codeonline.ui.dwz.common.BaseController;
 import com.jfinal.codeonline.metadata.db.DbConfigDataProvider;
 import com.jfinal.codeonline.script.DefaultScriptHelper;
 import com.jfinal.codeonline.template.FreeMarkerHelper;
+import com.jfinal.codeonline.ui.dwz.common.BaseController;
+import com.jfinal.codeonline.ui.dwz.entity.Entity;
+import com.jfinal.codeonline.ui.dwz.field.Field;
+import com.jfinal.codeonline.ui.dwz.group.Groups;
+import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.task.Task;
+import com.jfinal.codeonline.ui.dwz.task.TaskParam;
 import com.jfinal.config.*;
 import com.jfinal.core.JFinal;
 import com.jfinal.ext.handler.ContextPathHandler;
@@ -42,8 +48,15 @@ public class CodeConfig extends JFinalConfig {
                 "password").trim(), getProperty("driver"));
         AutoTableBindPlugin atbp = new AutoTableBindPlugin(druidPlugin, SimpleNameStyles.LOWER_UNDERLINE);
         atbp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
-        atbp.addScanPackages("com.jfinal.codeonline.designer.dwz");
+//        atbp.addScanPackages("com.jfinal.codeonline.ui.dwz");
         me.add(druidPlugin);
+        atbp.autoScan(false);
+        atbp.addMapping("project", Project.class);
+        atbp.addMapping("entity",Entity.class);
+        atbp.addMapping("field",Field.class);
+        atbp.addMapping("groups",Groups.class);
+        atbp.addMapping("task",Task.class);
+        atbp.addMapping("task_param",TaskParam.class);
         me.add(atbp);
     }
 

@@ -73,7 +73,7 @@ idea用户执行
  访问项目主页 <a href="http://localhost:8080/jcop">http://localhost:8080/jcop</a>
  (8080为容器默认端口,可以自己修改),显示如下
 
-<img src="./doc/img/index.jpg" style="width: 200px;"/>
+![ ](./doc/img/index.jpg)
 
 创建项目
 ---
@@ -269,12 +269,14 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 - 定制*任何自己想生成的代码模板*(模板文件采用freemarker,表达式采用groovy[完全兼容Java语法,通俗的理解为Java+,
 直接使用java语法写表达式,]),已经满足一个*生成器最重要的功能*
 
+- 选择任意的模板技术,默认提供了Freemarker模板,你可以选择任何你自己熟悉的模板引擎.
+- 选择任意的脚本语言编写表达式,默认提供了groovy的实现(groovy完全兼容java语法,通俗理解为java+,是java开发者初用脚本的极佳选择)
+
 不久的将来
 
 - 定制任务组,定制属于自己的生成器向导页面,如SSH (目前只支持jfinal web风格项目的向导)
-- 定制UI页面
-- 选择任意的模板技术,如velocity,mustache等
-- 选择任意的脚本语言编写表达式,如javascript等.
+- 定制UI页面,默认提供一套dwz的web 页面,你完全可以用自己熟悉的任何前端框架重写
+
 
 
 有你JCOP更美好

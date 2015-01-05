@@ -14,7 +14,6 @@ import com.jfinal.kit.PropKit;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.CaseInsensitiveContainerFactory;
 import com.jfinal.plugin.activerecord.Db;
-import com.jfinal.plugin.activerecord.SqlReporter;
 import com.jfinal.plugin.druid.DruidPlugin;
 
 import java.util.List;
@@ -26,9 +25,13 @@ public class DbConfigDataProvider implements IConfigDataProvider {
         DruidPlugin dp = new DruidPlugin(prop.get("jdbcUrl"), prop.get("username"), prop.get(
                 "password").trim(), prop.get("driver"));
         AutoTableBindPlugin atbp = new AutoTableBindPlugin("metadata", dp, SimpleNameStyles.LOWER_UNDERLINE);
-        atbp.addScanPackages("com.jfinal.codeonline.metadata.db");
+        atbp.autoScan(false);
+        atbp.addMapping("data_type", DataType.class);
+        atbp.addMapping("db_info",DbInfo.class);
+        atbp.addMapping("view_engine",ViewEngine.class);
+        atbp.addMapping("view_framework",ViewFramework.class);
+//        atbp.addScanPackages("com.jfinal.codeonline.metadata.db");
         atbp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
-        SqlReporter.setLogger(true);
         dp.start();
         atbp.start();
     }
