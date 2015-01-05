@@ -351,7 +351,9 @@ jcop架构设计(敬请期待...)
 ===
 
 - QQ群 434473532
+
 - <a href="http://code.jfinal.com">官方网站 http://code.jfinal.com</a>
 
 - 官方微信
-![ ](./doc/img/entity_new_index.jpg)
+
+![ ](./doc/img/wechat.jpg)
