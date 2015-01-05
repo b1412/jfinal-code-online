@@ -282,9 +282,9 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 有你JCOP更美好
 ===
 
-这是一个长期项目,本人虽然码艺不精,但是热爱编码,热爱分享,会不断的完善内核,并尽量提供一些简单模板,但是很多领域都不是
-我擅长的领域,(如前端页面开发),虽然我爱好学习但是精力有限不能样样通透,所以提供模板本身可能也有很多问题,希望有更多
-的爱好者一起来贡献自己经验,丰富我们的生态圈
+这是一个长期项目,JCOP本身仅仅是一个生成器微内核,目前提供的功能性的东西并不多,但是有计划在外围实现一个较全面的jfinal web基础框架
+可以直接用于企业的开发中.当然这受制于JCOP开发者本身的经验,必定有很多领域没有涉及过.所以JCOP希望有更多的人贡献不同技术模板,基础业
+务架构,因为JCOP的灵活架构,不同的模板语言,不同的技术架构都可以从外围插拔.
 
 使用中任何问题和建议
 ---
@@ -296,13 +296,13 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 
 目前这个时候
 
-- 可以fork一份JCOP,开发测试一套模板然后提交pull request
+- 可以fork一份JCOP,开发测试一套模板(位于/src/main/resources/templates/YourTemplateFolder)然后提交pull request
 - 可以单独成为一个项目,加入自己的模板然后将地址提交给我,加入JCOP文档中:)
 
 不久的将来
 
 - 当内核升级为元数据和模板数据彻底分离,模板仅仅作为一条数据(这里的数据可能是只一套模板的文件夹加一些文本描述)存在的时候,
-- 未来设想会做一个在线模板贡献的平台
+- 未来设想可能会做一个在线模板选择的平台.
 
 在oscgit和github上关注
 ---
@@ -340,22 +340,12 @@ jcop架构设计(敬请期待...)
 - Task
 
 扩展点
-===
+---
 
 - ConfigDataProvider
 - Task
 - Groups
 
-了解更多
-===
-
-
-
-<a href="http://kidzhou.me/blog/2014/12/28/jfinal-code-online-platformde-dan-sheng-yuan-yin">为什么开发JCOP在线项目生成平台</a>
-
-
-<a href="http://kidzhou.me/blog/2014/12/28/dui-jcopzai-xian-xiang-mu-sheng-cheng-ping-tai-de-zhan-wang">对JCOP在线项目生成平台的展望
-</a>
 
 更多支持
 ===
@@ -363,3 +353,5 @@ jcop架构设计(敬请期待...)
 - QQ群 434473532
 - <a href="http://code.jfinal.com">官方网站 http://code.jfinal.com</a>
 
+- 官方微信
+![ ](./doc/img/entity_new_index.jpg)

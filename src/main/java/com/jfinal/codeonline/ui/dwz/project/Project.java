@@ -2,12 +2,11 @@ package com.jfinal.codeonline.ui.dwz.project;
 
 import com.google.common.collect.Lists;
 import com.jfinal.codeonline.ext.TaskKit;
-import com.jfinal.codeonline.ui.dwz.group.Groups;
 import com.jfinal.codeonline.ui.dwz.entity.Entity;
+import com.jfinal.codeonline.ui.dwz.group.Groups;
 import com.jfinal.codeonline.ui.dwz.task.Task;
 import com.jfinal.ext.kit.ModelExt;
 import com.jfinal.log.Logger;
-import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 
 import java.util.List;
@@ -28,7 +27,8 @@ public class Project extends ModelExt<Project> {
     }
     @Override
     public boolean deleteById(Object id) {
-        Db.update("delete from entity where projectId =?", id);
+        Entity entity = Entity.DAO.findFirstByColumn("projectId",id);
+        Entity.DAO.deleteById(entity.getInt("id"));
         return super.deleteById(id);
     }
     public Page<Project> page(int pageNumber, int pageSize) {

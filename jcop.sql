@@ -54,7 +54,7 @@ CREATE TABLE `db_info` (
   `type` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `driverClass` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,10 +77,10 @@ DROP TABLE IF EXISTS `entity`;
 CREATE TABLE `entity` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `label` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '??',
-  `projectId` int(10) DEFAULT NULL COMMENT '????',
+  `label` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `projectId` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,13 +105,13 @@ CREATE TABLE `field` (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `label` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `isPrimaryKey` tinyint(4) DEFAULT '0',
-  `isSearchable` tinyint(4) DEFAULT '1' COMMENT '????',
-  `longness` int(10) DEFAULT '32' COMMENT '??',
+  `isSearchable` tinyint(4) DEFAULT '1',
+  `longness` int(10) DEFAULT '32',
   `scale` int(11) DEFAULT NULL,
   `type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `entityId` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `field` (
 
 LOCK TABLES `field` WRITE;
 /*!40000 ALTER TABLE `field` DISABLE KEYS */;
-INSERT INTO `field` VALUES (13,'id','id',1,0,0,NULL,'Integer',1),(14,'title','标题',0,1,32,NULL,'String',1),(22,'publishTime','发布时间',0,1,0,NULL,'Datetime',1),(23,'content','内容',0,0,0,NULL,'Richtext',1),(24,'score','评分',0,1,32,NULL,'Float',1);
+INSERT INTO `field` VALUES (1,'id','id',1,0,0,NULL,'Integer',1),(2,'title','标题',0,1,32,NULL,'String',1),(3,'publishTime','发布时间',0,1,0,NULL,'Datetime',1),(4,'score','评分',0,1,32,NULL,'Float',1),(5,'content','内容',0,0,0,NULL,'Richtext',1);
 /*!40000 ALTER TABLE `field` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +145,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (1,'jfinalweb','??jfinal?web??');
+INSERT INTO `groups` VALUES (1,'jfinalweb','基于jfinal的web项目');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,7 @@ CREATE TABLE `project` (
   `management` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT 'gradle',
   `groupsId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +206,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (1,'demo','生成','dwz','127.0.0.1','8080','mysql','jdbc:mysql://localhost:3306/demo','root','root','com.leonzhou.test','freemarker','gradle',1);
+INSERT INTO `project` VALUES (1,'demo','生成','dwz','127.0.0.1','8080','mysql','jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8','root','root','com.leonzhou.test','freemarker','gradle',1);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,4 +322,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-05  0:37:49
+-- Dump completed on 2015-01-05 22:17:57

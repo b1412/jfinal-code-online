@@ -7,14 +7,17 @@
                 <p>
                     <label>${(field.comment)?default("${field.name}")}：</label>
                     <input type="text" name="${entity.name}.${field.name}"
-                           value="<#noparse>${(</#noparse>${entity.name}.${field.name}<#noparse>)!}</#noparse>"
+                           value="<#noparse>${</#noparse>${entity.name}.${field.name}<#noparse>}</#noparse>"
                            class="date" readonly="true"/>
                     <a class="inputDateButton" href="javascript:;">选择</a>
                 </p>
                 <#elseif field.type="Datetime">
                     <p>
                         <label>${(field.comment)?default("${field.name}")}：</label>
-                        <input type="text" name="${entity.name}.${field.name}" class="date" readonly="true"/>
+                        <input type="text" name="${entity.name}.${field.name}"
+                               value="<#noparse>${</#noparse>${entity.name}.${field.name}<#noparse>}</#noparse>"
+                               dateFmt="yyyy-MM-dd HH:mm:ss"
+                               class="date" readonly="true"/>
                         <a class="inputDateButton" href="javascript:;">选择</a>
                     </p>
                     <#elseif field.type="Richtext">
@@ -22,8 +25,9 @@
                             <label>${(field.comment)?default("${field.name}")}：</label>
                             <textarea class="editor" name="${entity.name}.${field.name}"
                                       id="${entity.name}.${field.name}"
-                                      tools="mfull"><#noparse>${(</#noparse>${entity.name}.${field.name}<#noparse>)!}
-                            </#noparse></textarea>
+                                      rows="10" cols="50"
+                                      tools="mfull"><#noparse>${</#noparse>${entity.name}.${field.name}<#noparse>}</#noparse>
+                            </textarea>
                         </p>
                         <#else>
                             <p>

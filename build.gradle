@@ -15,8 +15,8 @@ task wrapper(type: Wrapper) {
 
 
 repositories {
-//    maven { url "http://maven.oschina.net/content/groups/public/" }
-    mavenCentral()
+    maven { url "http://maven.oschina.net/content/groups/public/" }
+//    mavenCentral()
 }
 
 dependencies {

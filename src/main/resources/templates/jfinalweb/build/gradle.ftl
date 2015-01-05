@@ -10,7 +10,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile group: 'com.jfinal', name: 'jfinal', version: '1.9'
     compile group: 'com.jfinal', name: 'jfinal-ext', version: '3.1.2'
-    compile'org.freemarker:freemarker:2.3.23'
+    compile'org.freemarker:freemarker:2.3.21'
     compile'mysql:mysql-connector-java:5.1.34'
     compile'log4j:log4j:1.2.16'
     compile'junit:junit:4.11'

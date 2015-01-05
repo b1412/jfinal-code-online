@@ -13,13 +13,13 @@
                         <#if field.isSearchable==1>
                             <td>
                                 <#if field.type=="Integer">
-                                    ${field.label}:<input type="text" name=${entity.name}.f_${field.name}/>
+                                    ${field.label}:<input type="text" name="${entity.name}.f_${field.name}" />
                                     <#elseif field.type="Datetime">
                                     <#elseif field.type="Date">
-                                        ${field.label}:<input type="text" name=${entity.name}.f_${field.name} class="date" readonly="true" />
+                                        ${field.label}:<input type="text" name="${entity.name}.f_${field.name}" class="date" readonly="true" />
                                         <#else>
-                                            ${field.label}:<input type="text" name=${entity.name}.f_${field.name}/>
-                                            <input type="hidden" name="${entity.name}.f_${field.name}_op" value="LIKE"/>
+                                            ${field.label}:<input type="text" name="${entity.name}.f_${field.name}" />
+                                            <input type="hidden" name="${entity.name}.f_${field.name}_op" value="LIKE" />
                                 </#if>
                             </td>
                         </#if>
@@ -34,8 +34,6 @@
                                 <button type="submit">检索</button>
                             </div>
                         </div>
-                    </li>
-                    <li><a class="button" href="advanced.html" target="dialog" mask="true" title="查询框"><span>高级检索</span></a>
                     </li>
                 </ul>
             </div>
@@ -75,9 +73,7 @@
             <#list entity.fields as field>
                 <#if field.isPrimaryKey!=1>
                     <td>
-                        <#noparse>${(</#noparse>
-                        item.${field.name}
-                        <#noparse>)!}</#noparse>
+                        <#noparse>${</#noparse>item.${field.name}<#noparse>}</#noparse>
                     </td>
                 </#if>
             </#list>

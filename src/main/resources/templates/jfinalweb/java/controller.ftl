@@ -49,7 +49,7 @@ public class ${entity.name?cap_first}Controller extends Controller {
 	public void delete() {
 		${entity.name?cap_first}.DAO.deleteById(getPara(0));
         <#if project.viewFramework="dwz">
-		DwzRender.success("rel_${entity.name}");
+			render(DwzRender.success());
 		<#else>
         forwardAction("/${entity.name}");
         </#if>
