@@ -1,7 +1,7 @@
-package com.jfinal.codeonline.designer.dwz;
+package com.jfinal.codeonline.ui.dwz;
 
 import com.jfinal.codeonline.core.Config;
-import com.jfinal.codeonline.designer.dwz.common.BaseController;
+import com.jfinal.codeonline.ui.dwz.common.BaseController;
 import com.jfinal.codeonline.metadata.db.DbConfigDataProvider;
 import com.jfinal.codeonline.script.DefaultScriptHelper;
 import com.jfinal.codeonline.template.FreeMarkerHelper;

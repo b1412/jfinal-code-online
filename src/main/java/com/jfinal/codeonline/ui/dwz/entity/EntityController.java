@@ -1,11 +1,12 @@
-package com.jfinal.codeonline.designer.dwz.entity;
+package com.jfinal.codeonline.ui.dwz.entity;
 
 import com.jfinal.core.Controller;
-import com.jfinal.codeonline.designer.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.project.Project;
 import com.jfinal.ext.render.DwzRender;
 
 public class EntityController extends Controller {
-    public void index() throws Exception {
+
+    public void index() {
         Integer projectId = getParaToInt("project.id");
         keepModel(Project.class);
         setAttr("page", Entity.DAO.page(projectId, getParaToInt(0, 1), 5));

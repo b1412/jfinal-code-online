@@ -17,6 +17,4 @@ public interface IConfigDataProvider {
 
      String dbColumnType(String dbType, String fieldType);
 
-     List<Class> utilityClasses();
-
 }

@@ -1,7 +1,7 @@
-package com.jfinal.codeonline.designer.dwz.task;
+package com.jfinal.codeonline.ui.dwz.task;
 
 import com.google.common.collect.Lists;
-import com.jfinal.codeonline.designer.dwz.common.BaseController;
+import com.jfinal.codeonline.ui.dwz.common.BaseController;
 import com.jfinal.ext.kit.ModelKit;
 import com.jfinal.ext.render.DwzRender;
 import com.jfinal.plugin.activerecord.Page;

@@ -1,7 +1,7 @@
-package com.jfinal.codeonline.designer.dwz.group;
+package com.jfinal.codeonline.ui.dwz.group;
 
 import com.google.common.base.Joiner;
-import com.jfinal.codeonline.designer.dwz.task.Task;
+import com.jfinal.codeonline.ui.dwz.task.Task;
 import com.jfinal.ext.kit.ModelExt;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
@@ -9,7 +9,7 @@ import com.jfinal.plugin.activerecord.Page;
 import java.util.List;
 
 public class Groups extends ModelExt<Groups> {
-    public final static Groups DAO = new Groups();
+    public static final Groups DAO = new Groups();
 
     public List<Task> tasks() {
         return Task.DAO.find("select t.* from task t " +

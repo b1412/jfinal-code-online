@@ -1,7 +1,7 @@
 package com.jfinal.codeonline.core;
 
-import com.jfinal.codeonline.designer.dwz.group.Groups;
-import com.jfinal.codeonline.designer.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.group.Groups;
+import com.jfinal.codeonline.ui.dwz.project.Project;
 import com.jfinal.log.Logger;
 import org.apache.commons.io.FileUtils;
 

@@ -1,10 +1,10 @@
-package com.jfinal.codeonline.designer.dwz.field;
+package com.jfinal.codeonline.ui.dwz.field;
 
+import com.jfinal.codeonline.ui.dwz.project.Project;
 import com.jfinal.core.Controller;
 import com.jfinal.codeonline.core.enums.YesOrNo;
 import com.jfinal.codeonline.core.Config;
-import com.jfinal.codeonline.designer.dwz.entity.Entity;
-import com.jfinal.codeonline.designer.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.entity.Entity;
 import com.jfinal.ext.render.DwzRender;
 
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.jfinal.codeonline.designer.dwz.task.processor;
+package com.jfinal.codeonline.ui.dwz.task.processor;
 
 import com.google.common.collect.Lists;
 import com.jfinal.codeonline.ext.TaskKit;
-import com.jfinal.codeonline.designer.dwz.project.Project;
-import com.jfinal.codeonline.designer.dwz.task.Task;
+import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.task.Task;
 
 import java.util.List;
 import java.util.Map;

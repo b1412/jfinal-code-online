@@ -1,4 +1,4 @@
-package com.jfinal.codeonline.designer.dwz.common;
+package com.jfinal.codeonline.ui.dwz.common;
 
 import com.google.common.collect.Lists;
 import com.jfinal.core.Controller;

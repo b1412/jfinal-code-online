@@ -30,13 +30,10 @@ public class FreeMarkerHelper extends TemplateHelper {
     }
 
     @Override
-    public void configBaseDir(String templatesBaseDir) {
-    }
-
-    @Override
     public void put(String key, Object value) {
-        if (value instanceof Map)
+        if (value instanceof Map) {
             value = new SimpleHash((Map) value);
+        }
         context.put(key, value);
     }
 
@@ -61,7 +58,7 @@ public class FreeMarkerHelper extends TemplateHelper {
                 try {
                     out.close();
                 } catch (IOException e) {
-                    new GenException(e);
+                    throw new GenException(e);
                 }
             }
         }

@@ -87,8 +87,4 @@ public class DbConfigDataProvider implements IConfigDataProvider {
         return result;
     }
 
-    @Override
-    public List<Class> utilityClasses() {
-        return Lists.newArrayList();
-    }
 }

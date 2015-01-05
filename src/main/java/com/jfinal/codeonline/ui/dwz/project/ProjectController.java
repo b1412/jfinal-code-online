@@ -1,7 +1,7 @@
-package com.jfinal.codeonline.designer.dwz.project;
+package com.jfinal.codeonline.ui.dwz.project;
 
 import com.jfinal.codeonline.core.CodeOnline;
-import com.jfinal.codeonline.designer.dwz.group.Groups;
+import com.jfinal.codeonline.ui.dwz.group.Groups;
 import com.jfinal.core.Controller;
 import com.jfinal.codeonline.core.Config;
 import com.jfinal.ext.render.DwzRender;

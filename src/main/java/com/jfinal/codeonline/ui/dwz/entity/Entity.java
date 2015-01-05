@@ -1,7 +1,7 @@
-package com.jfinal.codeonline.designer.dwz.entity;
+package com.jfinal.codeonline.ui.dwz.entity;
 
-import com.jfinal.codeonline.designer.dwz.project.Project;
-import com.jfinal.codeonline.designer.dwz.field.Field;
+import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.field.Field;
 import com.jfinal.ext.kit.ModelExt;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;

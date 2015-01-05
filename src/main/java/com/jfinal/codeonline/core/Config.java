@@ -2,15 +2,19 @@ package com.jfinal.codeonline.core;
 
 public class Config {
 
-    static private IConfigDataProvider configDataProvider;
+    private static IConfigDataProvider configDataProvider;
 
-    static private String templatePath;
+    private static String templatePath;
 
-    static private String targetPath;
+    private static String targetPath;
 
-    static private ScriptHelper scriptHelper;
+    private static  ScriptHelper scriptHelper;
 
-    static private TemplateHelper templateEngine;
+    private static  TemplateHelper templateEngine;
+
+    private Config(){
+
+    }
 
     public static IConfigDataProvider configDataProvider() {
         return configDataProvider;

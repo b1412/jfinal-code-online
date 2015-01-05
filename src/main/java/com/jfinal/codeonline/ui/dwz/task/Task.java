@@ -1,7 +1,7 @@
-package com.jfinal.codeonline.designer.dwz.task;
+package com.jfinal.codeonline.ui.dwz.task;
 
-import com.jfinal.codeonline.designer.dwz.project.Project;
-import com.jfinal.codeonline.designer.dwz.task.processor.ITaskProcessor;
+import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.task.processor.ITaskProcessor;
 import com.jfinal.ext.kit.ModelExt;
 import com.jfinal.ext.kit.Reflect;
 import com.jfinal.kit.StrKit;
@@ -15,7 +15,7 @@ import java.util.Map;
 public class Task extends ModelExt<Task> {
     private static final Logger LOG = Logger.getLogger(ModelExt.class);
 
-    public final static Task DAO = new Task();
+    public static final Task DAO = new Task();
 
     public Page<Task> page(int pageNumber, int pageSize) {
         return paginate(pageNumber, pageSize, "select *", "from task order by id desc");

@@ -1,10 +1,10 @@
-package com.jfinal.codeonline.designer.dwz.project;
+package com.jfinal.codeonline.ui.dwz.project;
 
 import com.google.common.collect.Lists;
 import com.jfinal.codeonline.ext.TaskKit;
-import com.jfinal.codeonline.designer.dwz.group.Groups;
-import com.jfinal.codeonline.designer.dwz.entity.Entity;
-import com.jfinal.codeonline.designer.dwz.task.Task;
+import com.jfinal.codeonline.ui.dwz.group.Groups;
+import com.jfinal.codeonline.ui.dwz.entity.Entity;
+import com.jfinal.codeonline.ui.dwz.task.Task;
 import com.jfinal.ext.kit.ModelExt;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.Db;

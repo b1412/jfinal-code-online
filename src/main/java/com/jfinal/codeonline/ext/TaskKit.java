@@ -2,10 +2,10 @@ package com.jfinal.codeonline.ext;
 
 import com.google.common.collect.Maps;
 import com.jfinal.codeonline.core.Config;
-import com.jfinal.codeonline.designer.dwz.entity.Entity;
-import com.jfinal.codeonline.designer.dwz.project.Project;
-import com.jfinal.codeonline.designer.dwz.task.Task;
-import com.jfinal.codeonline.designer.dwz.task.TaskParam;
+import com.jfinal.codeonline.ui.dwz.entity.Entity;
+import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.codeonline.ui.dwz.task.Task;
+import com.jfinal.codeonline.ui.dwz.task.TaskParam;
 import com.jfinal.kit.StrKit;
 import com.jfinal.log.Logger;
 

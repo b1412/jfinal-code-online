@@ -1,4 +1,4 @@
-package com.jfinal.codeonline.designer.dwz.task;
+package com.jfinal.codeonline.ui.dwz.task;
 
 import com.jfinal.ext.kit.ModelExt;
 
