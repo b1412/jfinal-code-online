@@ -70,6 +70,10 @@ idea用户执行
 
  将jcop.war复制到任何servlet容器(如tomcat,jetty)并启动
 
+ 特别注意:需要先修改war中数据库用户密码配置为自己的数据库用户密码,否则启动失败.
+ 可以直接解压war包修改配置再启动.或者第一次忘记修改启动失败后再修改解压出来的配置文件.
+ ![ ](./doc/img/conf.jpg)
+
  访问项目主页 <a href="http://localhost:8080/jcop">http://localhost:8080/jcop</a>
  (8080为容器默认端口,可以自己修改),显示如下
 
