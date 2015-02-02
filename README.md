@@ -253,7 +253,7 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 内核简单
 ---
 
-代码量极少,不到2000行代码,稍微有经验的开发者都能很快掌握整个生成平台的内核.
+代码量极少,仅1000余行代码,稍微有经验的开发者都能很快掌握整个生成平台的内核.
 
 扩展简单
 ---
@@ -266,15 +266,13 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 
 目前这个时候
 
-- 定制*任何自己想生成的代码模板*(模板文件采用freemarker,表达式采用groovy[完全兼容Java语法,通俗的理解为Java+,
-直接使用java语法写表达式,]),已经满足一个*生成器最重要的功能*
-
+- 定制*任何自己想生成的代码模板*,已经满足一个*生成器最重要的功能*
 - 选择任意的模板技术,默认提供了Freemarker模板,你可以选择任何你自己熟悉的模板引擎.
 - 选择任意的脚本语言编写表达式,默认提供了groovy的实现(groovy完全兼容java语法,通俗理解为java+,是java开发者初用脚本的极佳选择)
+- 定制任务组,定制属于自己的生成器向导页面,如SSH (目前只支持jfinal web风格项目的向导)
 
 不久的将来
 
-- 定制任务组,定制属于自己的生成器向导页面,如SSH (目前只支持jfinal web风格项目的向导)
 - 定制UI页面,默认提供一套dwz的web 页面,你完全可以用自己熟悉的任何前端框架重写
 
 
@@ -313,18 +311,39 @@ JCOP所希望达到的效果（jfinal-code-online platform名字的由来）。
 另外我希望这是一个国际化的项目,所有文档都会英文化,在英语世界做一定推广,请在<a href="https://github.com/b1412/jfinal-code-online">github</a>关注.
 
 
-如何扩展(敬请期待...)
+如何扩展
 ===
+
+JCOP本身自带的模板目前还比较有限,但是用户可以根据自己的需要在现有的基础上轻松的做出修改和加入自己需要的模板
 
 修改已有模板
 ---
 
+JCOP默认的JFinalweb模板在
+
+    src/main/resources/templates/jfinalweb
+
+![ ](./doc/img/jfinalweb.png)
+
+   打开任意一个模板修改后,再生成project则采用了修改后的模板
+
 新增模板
 ---
+进入 设计器管理->task管理
+
+![ ](./doc/img/task_index.png)
+
+新增一个task
+
+![ ](./doc/img/task_add.png)
+
 
 设计自己的架构规范
 ---
 
+进入 设计器管理->group管理
+
+新增一个group
 
 
 jcop架构设计(敬请期待...)
@@ -336,7 +355,7 @@ jcop架构设计(敬请期待...)
 - Project
 - Entity
 - Field
-- Groups
+- Group
 - Task
 
 扩展点
@@ -355,3 +374,16 @@ jcop架构设计(敬请期待...)
 
 - 官方微信
 ![ ](./doc/img/entity_new_index.jpg)
+
+捐助
+===
+
+如果您喜欢JFinal-Code-Online
+并确实对您带来帮助
+对此感到无比高兴
+您的捐赠，是JCOP前进的动力!
+
+支付宝捐助账户： zhouleib1412@gmail.com    (可输入留言)
+
+
+支付宝二维码扫描捐助

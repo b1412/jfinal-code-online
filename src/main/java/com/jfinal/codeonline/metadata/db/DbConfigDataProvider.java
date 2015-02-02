@@ -3,10 +3,7 @@ package com.jfinal.codeonline.metadata.db;
 import com.google.common.collect.Lists;
 import com.jfinal.codeonline.core.GenException;
 import com.jfinal.codeonline.core.IConfigDataProvider;
-import com.jfinal.codeonline.metadata.db.model.DataType;
-import com.jfinal.codeonline.metadata.db.model.DbInfo;
-import com.jfinal.codeonline.metadata.db.model.ViewEngine;
-import com.jfinal.codeonline.metadata.db.model.ViewFramework;
+import com.jfinal.codeonline.metadata.db.model.*;
 import com.jfinal.ext.plugin.tablebind.AutoTableBindPlugin;
 import com.jfinal.ext.plugin.tablebind.SimpleNameStyles;
 import com.jfinal.kit.Prop;
@@ -25,12 +22,7 @@ public class DbConfigDataProvider implements IConfigDataProvider {
         DruidPlugin dp = new DruidPlugin(prop.get("jdbcUrl"), prop.get("username"), prop.get(
                 "password").trim(), prop.get("driver"));
         AutoTableBindPlugin atbp = new AutoTableBindPlugin("metadata", dp, SimpleNameStyles.LOWER_UNDERLINE);
-        atbp.autoScan(false);
-        atbp.addMapping("data_type", DataType.class);
-        atbp.addMapping("db_info",DbInfo.class);
-        atbp.addMapping("view_engine",ViewEngine.class);
-        atbp.addMapping("view_framework",ViewFramework.class);
-//        atbp.addScanPackages("com.jfinal.codeonline.metadata.db");
+        atbp.addScanPackages("com.jfinal.codeonline.metadata.db");
         atbp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
         dp.start();
         atbp.start();
@@ -82,12 +74,22 @@ public class DbConfigDataProvider implements IConfigDataProvider {
     }
 
     @Override
+    public String javaType(String dbType, String fieldType) {
+        return Db.queryFirst("select javaType from data_type where dbType = ? and fieldType=?", dbType, fieldType);
+    }
+
+    @Override
     public String dbColumnType(String dbType, String fieldType) {
         String result = Db.queryStr("select columnType from data_type where dbType = ? and fieldType =?", dbType, fieldType);
         if (StrKit.isBlank(result)) {
             throw new GenException("fieldType(" + fieldType + ") can match any columnType in database(" + dbType + ")");
         }
         return result;
+    }
+
+    @Override
+    public List<String> utilityClasses() {
+        return UtilityClass.DAO.findAllNames();
     }
 
 }

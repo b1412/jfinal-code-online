@@ -14,8 +14,7 @@
 
                 <p>
                     <label>任务类型：</label>
-                    <input name="task.tasktype" class="required" type="text" size="30" value="${task.tasktype}"
-                           alt="请输入内容"/>
+                    <@select  data=types name="task.type" title="display"  id="value" value=task.type></@select>
                 </p>
                 <p>
                     <label>文件夹：</label>

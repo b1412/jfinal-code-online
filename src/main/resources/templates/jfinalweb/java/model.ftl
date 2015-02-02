@@ -15,10 +15,10 @@ public class ${entityName} extends Model<${entityName}> {
 	
 	<#if _accessor == 1>
 	<#list entity.fields as field>
-	public ${field.fieldType?lower_case?cap_first} get${field.name?cap_first}(){
+	public ${IConfigDataProvider.javaType(project.dbType,field.fieldType)} get${field.name?cap_first}(){
 		return get("${field.name}");
 	}
-	public void set${field.name?cap_first}(${field.fieldType?lower_case?cap_first} ${field.name}){
+	public void set${field.name?cap_first}(${IConfigDataProvider.javaType(project.dbType,field.fieldType)} ${field.name}){
 		set("${field.name}",${field.name});
 	}
 	</#list>

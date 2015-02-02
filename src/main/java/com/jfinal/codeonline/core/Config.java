@@ -2,25 +2,35 @@ package com.jfinal.codeonline.core;
 
 public class Config {
 
+    private static IProjectInitializer projectInitializer;
+
     private static IConfigDataProvider configDataProvider;
 
     private static String templatePath;
 
     private static String targetPath;
 
-    private static  ScriptHelper scriptHelper;
+    private static IScriptHelper scriptHelper;
 
-    private static  TemplateHelper templateEngine;
+    private static ITemplateHelper templateEngine;
 
-    private Config(){
+    private Config() {
 
+    }
+
+    public static IProjectInitializer projectInitializer() {
+        return projectInitializer;
+    }
+
+    static void projectInitializer(IProjectInitializer projectInitializer) {
+        Config.projectInitializer = projectInitializer;
     }
 
     public static IConfigDataProvider configDataProvider() {
         return configDataProvider;
     }
 
-    public static void configDataProvider(IConfigDataProvider configDataProvider) {
+    static void configDataProvider(IConfigDataProvider configDataProvider) {
         Config.configDataProvider = configDataProvider;
     }
 
@@ -28,7 +38,7 @@ public class Config {
         return templatePath;
     }
 
-    public static void templatePath(String templatePath) {
+    static void templatePath(String templatePath) {
         Config.templatePath = templatePath;
     }
 
@@ -36,23 +46,23 @@ public class Config {
         return targetPath;
     }
 
-    public static void targetPath(String targetPath) {
+    static void targetPath(String targetPath) {
         Config.targetPath = targetPath;
     }
 
-    public static ScriptHelper scriptHelper() {
+    public static IScriptHelper scriptHelper() {
         return scriptHelper;
     }
 
-    public static void scriptHelper(ScriptHelper scriptHelper) {
+    static void scriptHelper(IScriptHelper scriptHelper) {
         Config.scriptHelper = scriptHelper;
     }
 
-    public static TemplateHelper templateEngine() {
+    public static ITemplateHelper templateEngine() {
         return templateEngine;
     }
 
-    public static void templateEngine(TemplateHelper templateEngine) {
+    static void templateEngine(ITemplateHelper templateEngine) {
         Config.templateEngine = templateEngine;
     }
 }

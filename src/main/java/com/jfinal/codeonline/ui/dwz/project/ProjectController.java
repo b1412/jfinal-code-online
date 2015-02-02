@@ -1,9 +1,9 @@
 package com.jfinal.codeonline.ui.dwz.project;
 
 import com.jfinal.codeonline.core.CodeOnline;
-import com.jfinal.codeonline.ui.dwz.group.Groups;
-import com.jfinal.core.Controller;
 import com.jfinal.codeonline.core.Config;
+import com.jfinal.codeonline.ui.dwz.group.Group;
+import com.jfinal.core.Controller;
 import com.jfinal.ext.render.DwzRender;
 import com.jfinal.plugin.activerecord.Page;
 import de.java2html.Java2Html;
@@ -12,8 +12,6 @@ import de.java2html.javasource.JavaSourceParser;
 
 import java.io.File;
 import java.io.IOException;
-
-import static com.jfinal.codeonline.core.Constants.FS;
 
 public class ProjectController extends Controller {
 
@@ -24,7 +22,7 @@ public class ProjectController extends Controller {
 
     public void save() {
         Project model = getModel(Project.class);
-        model.set("groupsId", 1);
+        model.set("groupId", 1);
         if (model.getInt("id") == null) {
             model.save();
         } else {
@@ -52,15 +50,26 @@ public class ProjectController extends Controller {
 
     public void create() {
         Project project = Project.DAO.findById(getParaToInt(0));
-        Groups groups = project.getGroups();
-        setAttr("project", project);
-        new CodeOnline(project).run(groups);
-        setAttr("root", new File(Config.targetPath() + FS + project.getStr("name")));
+        Group group = project.getGroup();
+        CodeOnline.on(project).run(group);
+        setAttr("root", project.rootFile());
+        render("tree.html");
+    }
+
+    public void tree() {
+        Project project = Project.DAO.findById(getParaToInt(0));
+        File root = project.rootFile();
+        if (root.exists()) {
+            setAttr("root", root);
+        } else {
+            create();
+        }
     }
 
     public void viewFile() throws IOException {
         String fileName = getPara("path");
         JavaSource javaSource = new JavaSourceParser().parse(new File(fileName));
-        renderHtml(Java2Html.convertToHtmlPage(javaSource.getCode()));
+        String value = Java2Html.convertToHtmlPage(javaSource.getCode());
+        setAttr("content", value);
     }
 }

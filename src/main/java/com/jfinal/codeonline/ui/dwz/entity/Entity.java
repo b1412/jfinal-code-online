@@ -28,7 +28,7 @@ public class Entity extends ModelExt<Entity> {
     }
 
     public List<Field> getFields() {
-        return Field.DAO.find("select * from field where entityId = ?", get("id"));
+        return Field.DAO.find("select * from field where entityId = ?", getInt("id"));
     }
 
     public Page<Entity> page(int projectId, int pageNumber, int pageSize) {

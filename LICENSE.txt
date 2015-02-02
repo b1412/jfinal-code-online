@@ -1,1 +1,15 @@
 // Your License Goes here
+
+groups管理
+1 添加task
+2 管理project元数据
+3管理
+
+field 元数据
+
+
+只选择哪些生成哪些任务
+
+entity 上执行, 选择执行哪些task
+
+project(所有实体)上执行

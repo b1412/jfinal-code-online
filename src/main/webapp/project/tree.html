@@ -1,7 +1,7 @@
 <#include "/common/template.html" />
 <#macro fileTree  root >
     <#if root.isDirectory()>
-        <li><a href="project/viewFile?path=${root.getAbsolutePath()}" target="navTab">${root.getName()}</a>
+        <li><a href="#" target="">${root.getName()}</a>
             <ul>
                 <#list root.listFiles() as node>
                     <@fileTree node/>
@@ -19,9 +19,9 @@
 
 </#macro>
 <div>
-
-    <ul class="tree treeFolder expand">
-        <@fileTree root/>
-    </ul>
-
+    <div class="pageContent" layoutH="1">
+        <ul class="tree treeFolder expand">
+            <@fileTree root/>
+        </ul>
+    </div>
 </div>

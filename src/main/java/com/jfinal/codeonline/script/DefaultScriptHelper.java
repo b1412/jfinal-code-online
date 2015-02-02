@@ -1,6 +1,6 @@
 package com.jfinal.codeonline.script;
 
-import com.jfinal.codeonline.core.ScriptHelper;
+import com.jfinal.codeonline.core.IScriptHelper;
 import com.jfinal.codeonline.core.GenException;
 
 import javax.script.ScriptEngine;
@@ -9,7 +9,7 @@ import javax.script.ScriptException;
 import java.util.Map;
 import java.util.Set;
 
-public class DefaultScriptHelper implements ScriptHelper {
+public class DefaultScriptHelper implements IScriptHelper {
     private String language;
 
     public DefaultScriptHelper(String language) {

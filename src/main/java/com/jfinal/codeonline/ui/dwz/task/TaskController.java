@@ -1,6 +1,7 @@
 package com.jfinal.codeonline.ui.dwz.task;
 
 import com.google.common.collect.Lists;
+import com.jfinal.codeonline.core.enums.TaskType;
 import com.jfinal.codeonline.ui.dwz.common.BaseController;
 import com.jfinal.ext.kit.ModelKit;
 import com.jfinal.ext.render.DwzRender;
@@ -41,6 +42,7 @@ public class TaskController extends BaseController {
         if (task == null) {
             task = new Task();
         }
+        setAttr("types", TaskType.RECORDS);
         setAttr("task", task);
     }
 

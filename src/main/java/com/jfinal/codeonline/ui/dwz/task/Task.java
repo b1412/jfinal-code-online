@@ -1,5 +1,8 @@
 package com.jfinal.codeonline.ui.dwz.task;
 
+import com.google.common.collect.Maps;
+import com.jfinal.codeonline.core.Config;
+import com.jfinal.codeonline.ui.dwz.entity.Entity;
 import com.jfinal.codeonline.ui.dwz.project.Project;
 import com.jfinal.codeonline.ui.dwz.task.processor.ITaskProcessor;
 import com.jfinal.ext.kit.ModelExt;
@@ -9,8 +12,11 @@ import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
+
+import static com.jfinal.codeonline.core.Constants.FS;
 
 public class Task extends ModelExt<Task> {
     private static final Logger LOG = Logger.getLogger(ModelExt.class);
@@ -40,9 +46,50 @@ public class Task extends ModelExt<Task> {
         return super.deleteById(id);
     }
 
+
+    public List<String> processTask(Project project) {
+        List<Entity> entities = project.getEntities();
+        Map<String, Object> scope = Maps.newHashMap();
+        scope.put("project", project);
+        scope.put("entities", entities);
+        scope.put("configDataProvider", Config.configDataProvider());
+        List<String> utilClassNames = Config.configDataProvider().utilityClasses();
+        for (String utilClassName : utilClassNames) {
+            Class clazz = Reflect.on(utilClassName).get();
+            scope.put(clazz.getSimpleName(), clazz);
+        }
+        for (TaskParam taskParam : getTaskParams()) {
+            scope.put(taskParam.getStr("key"), Config.scriptHelper().exec(taskParam.getStr("expression"), scope));
+        }
+        Config.templateEngine().putAll(scope);
+        return run(project, scope);
+    }
+
+    public String processTemplate(Map<String, Object> root) {
+        Project project = (Project) root.get("project");
+        List<TaskParam> params = getTaskParams();
+        for (TaskParam param : params) {
+            if (StrKit.isBlank(param.getStr("name"))) continue;
+            String value = param.getStr("expression");
+            Config.templateEngine().put(param.getStr("name"), Config.scriptHelper().exec(value, root));
+        }
+        String templateFilename = project.getGroup().getStr("name") + FS + Config.scriptHelper().exec(getStr("templatePath"), root).toString();
+        String folder = Config.scriptHelper().exec(getStr("folder"), root).toString();
+        folder = Config.targetPath() + FS + project.getStr("name") + File.separator + folder;
+        File folderDir = new File(folder);
+        if (!folderDir.exists()) {
+            folderDir.mkdirs();
+        }
+        String filename = Config.scriptHelper().exec(getStr("filename"), root).toString();
+        String outputFilename = folder + FS + filename;
+        LOG.debug(outputFilename);
+        Config.templateEngine().exec(templateFilename, outputFilename);
+        return outputFilename;
+
+    }
     public List<String> run( Project project, Map<String, Object> root) {
         LOG.debug("task " + this.getStr("taskname") + " run");
-        List<String> paths = taskProcessor(this.getStr("taskType")).run(project, this, root);
+        List<String> paths = taskProcessor(this.getStr("type")).run(project, this, root);
         LOG.debug("task " + this.getStr("taskname") + " end");
         return paths;
     }

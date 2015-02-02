@@ -1,7 +1,7 @@
 package com.jfinal.codeonline.template;
 
 import com.jfinal.codeonline.core.GenException;
-import com.jfinal.codeonline.core.TemplateHelper;
+import com.jfinal.codeonline.core.ITemplateHelper;
 import freemarker.cache.FileTemplateLoader;
 import freemarker.cache.TemplateLoader;
 import freemarker.template.Configuration;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 import static com.jfinal.core.Const.DEFAULT_ENCODING;
 
-public class FreeMarkerHelper extends TemplateHelper {
+public class FreeMarkerHelper implements ITemplateHelper {
     protected Configuration freeMarkerEngine;
     protected SimpleHash context;
 

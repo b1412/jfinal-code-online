@@ -8,31 +8,31 @@ import com.jfinal.plugin.activerecord.Page;
 
 import java.util.List;
 
-public class Groups extends ModelExt<Groups> {
-    public static final Groups DAO = new Groups();
+public class Group extends ModelExt<Group> {
+    public static final Group DAO = new Group();
 
     public List<Task> tasks() {
         return Task.DAO.find("select t.* from task t " +
-                "left join groups_task_relation  r on(t.id = r.taskId) " +
-                "left join groups g on(r.groupsId = g.id) where g.id = ?", getInt("id"));
+                "left join group_task_relation  r on(t.id = r.taskId) " +
+                "left join `group` g on(r.groupId = g.id) where g.id = ?", getInt("id"));
     }
 
     public String taskIds() {
         List<Integer> ids = Db.query("select t.id from task t " +
-                "left join groups_task_relation  r on(t.id = r.taskId) " +
-                "left join groups g on(r.groupsId = g.id) where g.id = ?", getInt("id"));
+                "left join group_task_relation  r on(t.id = r.taskId) " +
+                "left join `group` g on(r.groupId = g.id) where g.id = ?", getInt("id"));
         return Joiner.on(",").join(ids);
     }
 
     public String taskNames() {
         List<Integer> ids = Db.query("select t.taskname from task t " +
-                "left join groups_task_relation  r on(t.id = r.taskId) " +
-                "left join groups g on(r.groupsId = g.id) where g.id = ?", getInt("id"));
+                "left join group_task_relation  r on(t.id = r.taskId) " +
+                "left join `group` g on(r.groupId = g.id) where g.id = ?", getInt("id"));
         return Joiner.on(",").join(ids);
     }
 
-    public Page<Groups> page(int pageNumber, int pageSize) {
-        return paginate(pageNumber, pageSize, "select *", "from groups order by id desc");
+    public Page<Group> page(int pageNumber, int pageSize) {
+        return paginate(pageNumber, pageSize, "select *", "from `group` order by id desc");
     }
 
     @Override
@@ -43,12 +43,12 @@ public class Groups extends ModelExt<Groups> {
 
     @Override
 
-    public List<Groups> findAll() {
+    public List<Group> findAll() {
         return DAO.find("select * from task where valid = 1");
     }
 
     public void deleteTasks(Object id) {
-        Db.update("delete from groups_task_relation where groupsId = ?", id);
+        Db.update("delete from group_task_relation where groupId = ?", id);
     }
 
     public void deleteTasks() {

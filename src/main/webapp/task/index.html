@@ -55,7 +55,7 @@
         <#list page.getList() as item>
             <tr target="itemid" rel="${item.id}">
                 <#if lookup==1>
-                    <td><input type="checkbox">
+                    <td><input type="checkbox"
                         <#list taskIds as id>
                             <#if id=item.id>checked="checked"</#if>
                         </#list>

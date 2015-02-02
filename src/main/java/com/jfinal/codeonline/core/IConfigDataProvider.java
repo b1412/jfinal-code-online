@@ -5,16 +5,20 @@ import java.util.List;
 
 public interface IConfigDataProvider {
 
-     List<String> viewFrameworks();
+    List<String> viewFrameworks();
 
-     List<String> viewEngines();
+    List<String> viewEngines();
 
-     String driver(String dbType);
+    String driver(String dbType);
 
-     List<String> dbTypes();
+    List<String> dbTypes();
 
-     List<String> fieldTypes(String dbType);
+    List<String> fieldTypes(String dbType);
 
-     String dbColumnType(String dbType, String fieldType);
+    String javaType(String dbType, String fieldType);
+
+    String dbColumnType(String dbType, String fieldType);
+
+    List<String> utilityClasses();
 
 }

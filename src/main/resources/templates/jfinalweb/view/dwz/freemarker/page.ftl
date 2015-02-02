@@ -60,7 +60,7 @@
         <tr>
             <#list entity.fields as field>
                 <#if field.isPrimaryKey==0>
-                    <th width="80" align="center">${(field.comment)?default("${field.name}")}</th>
+                    <th width="80" align="center">${(field.label)?default("${field.name}")}</th>
                 </#if>
             </#list>
         </tr>
