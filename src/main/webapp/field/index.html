@@ -1,8 +1,8 @@
 <#include "/common/template.html" />
-<@simpleLayout actionUrl="field" params="entity.id=${entity.id}">
+<@simpleLayout actionUrl="field/{entityId}">
 <div class="pageHeader">
 	<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="field/" method="post">
-		<input type="hidden" name="entity.id" value="${entity.id}">
+		<input type="hidden" name="entityId" value="${entityId}">
 	<div class="searchBar">
 		<ul class="searchContent">
 		</ul>
@@ -16,51 +16,14 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" href="field/edit/-1?entity.id=${entity.id}" target="navTab" ref="editField"><span>添加</span></a></li>
+			<li><a class="add" href="field/edit/-1?entityId=${entityId}" target="navTab" ref="addField"><span>添加</span></a></li>
 			<li class="line">line</li>
 			<li><a class="delete" href="field/delete/{itemId}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
 			<li class="line">line</li>
-			<li><a class="edit" href="field/edit/{itemId}?entity.id=${entity.id}" target="navTab"><span>修改</span></a></li>
+			<li><a class="edit" href="field/edit/{itemId}?entityId=${entityId}" target="navTab" ref="editField"><span>修改</span></a></li>
 		</ul>
 	</div>
-	<table class="table" width="100%" layoutH="138">
-		<thead>
-			<tr>
-				<th>是否主键</th>
-				<th>字段名</th>
-				<th>字段类型</th>
-				<th>描述</th>
-				<!--<th>是否显示</th>-->
-				<th>是否可查询</th>
-				<!--<th>是否只读</th>-->
-				<!--<th>是否隐藏</th>-->
-				<th>所属实体</th>
-			</tr>
-		</thead>
-		<tbody>
-		<#list page.getList() as item>
-			<tr target="itemId" rel="${item.id}">
-				<td>
-					${item.isPrimaryKey}
-				</td>
-				<td>
-					${item.name}
-				</td>
-				<td>
-					${item.type}
-				</td>
-				<td>
-					${item.label}
-				</td>
-				<td>
-					${item.isSearchable}
-				</td>
-				<td>
-					${item.entity.name}
-				</td>
-			</tr>
-		</#list>
-		</tbody>
-	</table>
+    <@dynamicTablePage></@dynamicTablePage>
+
 </div>
 </@simpleLayout>

@@ -13,6 +13,7 @@ public class CodeOnlinePlugin implements IPlugin {
     public boolean start() {
         Config.projectInitializer(codeOnlineConfig.projectInitializer());
         Config.configDataProvider(codeOnlineConfig.configConfigDataProvider());
+        Config.modelProvider(codeOnlineConfig.modelProvider());
         Config.targetPath(codeOnlineConfig.configTargetPath());
         Config.templatePath(codeOnlineConfig.configTemplatePath());
         Config.templateEngine(codeOnlineConfig.configTemplateEngine());
@@ -22,6 +23,6 @@ public class CodeOnlinePlugin implements IPlugin {
 
     @Override
     public boolean stop() {
-        return false;
+        return true;
     }
 }

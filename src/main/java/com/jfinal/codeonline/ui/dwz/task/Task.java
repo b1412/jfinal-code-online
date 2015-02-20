@@ -2,8 +2,6 @@ package com.jfinal.codeonline.ui.dwz.task;
 
 import com.google.common.collect.Maps;
 import com.jfinal.codeonline.core.Config;
-import com.jfinal.codeonline.ui.dwz.entity.Entity;
-import com.jfinal.codeonline.ui.dwz.project.Project;
 import com.jfinal.codeonline.ui.dwz.task.processor.ITaskProcessor;
 import com.jfinal.ext.kit.ModelExt;
 import com.jfinal.ext.kit.Reflect;
@@ -11,6 +9,7 @@ import com.jfinal.kit.StrKit;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.plugin.activerecord.Record;
 
 import java.io.File;
 import java.util.List;
@@ -47,8 +46,9 @@ public class Task extends ModelExt<Task> {
     }
 
 
-    public List<String> processTask(Project project) {
-        List<Entity> entities = project.getEntities();
+    public List<String> processTask(Record project) {
+        List<Record> entities = Config.modelProvider().getEntities(project);
+        System.out.println(entities);
         Map<String, Object> scope = Maps.newHashMap();
         scope.put("project", project);
         scope.put("entities", entities);
@@ -66,14 +66,15 @@ public class Task extends ModelExt<Task> {
     }
 
     public String processTemplate(Map<String, Object> root) {
-        Project project = (Project) root.get("project");
+        Record project = (Record) root.get("project");
         List<TaskParam> params = getTaskParams();
         for (TaskParam param : params) {
             if (StrKit.isBlank(param.getStr("name"))) continue;
             String value = param.getStr("expression");
             Config.templateEngine().put(param.getStr("name"), Config.scriptHelper().exec(value, root));
         }
-        String templateFilename = project.getGroup().getStr("name") + FS + Config.scriptHelper().exec(getStr("templatePath"), root).toString();
+        String templateFilename = Config.modelProvider().getGroup(project).getStr("name") + FS
+                + Config.scriptHelper().exec(getStr("templatePath"), root).toString();
         String folder = Config.scriptHelper().exec(getStr("folder"), root).toString();
         folder = Config.targetPath() + FS + project.getStr("name") + File.separator + folder;
         File folderDir = new File(folder);
@@ -87,10 +88,10 @@ public class Task extends ModelExt<Task> {
         return outputFilename;
 
     }
-    public List<String> run( Project project, Map<String, Object> root) {
-        LOG.debug("task " + this.getStr("taskname") + " run");
+    public List<String> run( Record project, Map<String, Object> root) {
+        LOG.debug("task " + getStr("taskname") + " run");
         List<String> paths = taskProcessor(this.getStr("type")).run(project, this, root);
-        LOG.debug("task " + this.getStr("taskname") + " end");
+        LOG.debug("task " + getStr("taskname") + " end");
         return paths;
     }
 

@@ -14,6 +14,9 @@
             <p>
                 <label>任务组备注：</label>
                 <input name="group.remark" type="text" size="30" value="${group.remark}">
+            </p>            <p>
+                <label>初始化</label>
+                <input name="group.remark" type="text" size="30" value="${group.initializer}">
             </p>
 
             <p>
@@ -41,29 +44,37 @@
                         <table class="list nowrap itemDetail" addButton="新增参数" width="100%">
                             <thead>
                             <tr>
-                                <th type="text" name="taskParams[#index#].name" size="20" fieldClass="required">
+                                <th type="text" name="projectMetadata[#index#].name" size="20" fieldClass="required">
                                     name
                                 </th>
-                                <th type="text" name="taskParams[#index#].label" size="20" fieldClass="required">
+                                <th type="text" name="projectMetadata[#index#].label" size="20" >
                                     label
+                                </th>
+                                <th type="text" name="projectMetadata[#index#].type"  size="20" >
+                                    type
                                 </th>
                                 <th type="del" width="60">操作</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <#list task.taskParams as item>
+                            <#list group.projectMetadata as item>
                                 <tr>
-                                    <input type="hidden" name="GroupMetadatas[${item_index}].type" value="project">
+                                    <input type="hidden" name="projectMetadata[${item_index}].scope" value="project">
                                     <td>
-                                        <input type="text" name="GroupMetadatas[${item_index}].name"
+                                        <input type="text" name="projectMetadata[${item_index}].name"
                                                value="${item.name}" size="20"
                                                class="required textInput valid">
                                     </td>
                                     <td>
-                                        <input type="text" name="GroupMetadatas[${item_index}].label"
+                                        <input type="text" name="projectMetadata[${item_index}].label"
                                                value="${item.label}"
-                                               size="20" class="required textInput valid">
+                                               size="20">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="projectMetadata[${item_index}].type"
+                                               value="${item.type}"
+                                               size="20">
                                     </td>
                                     <td>
                                         <a href="javascript:void(0)" class="btnDel ">删除</a>
@@ -78,29 +89,37 @@
                         <table class="list nowrap itemDetail" addButton="新增参数" width="100%">
                             <thead>
                             <tr>
-                                <th type="text" name="taskParams[#index#].name" size="20" fieldClass="required">
+                                <th type="text" name="entityMetadata[#index#].name" size="20" fieldClass="required">
                                     name
                                 </th>
-                                <th type="text" name="taskParams[#index#].label" size="20" fieldClass="required">
+                                <th type="text" name="entityMetadata[#index#].label" size="20" >
                                     label
+                                </th>
+                                <th type="text" name="entityMetadata[#index#].type" size="20" >
+                                    type(int/string/boolean/enum)
                                 </th>
                                 <th type="del" width="60">操作</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <#list task.taskParams as item>
+                            <#list group.entityMetadata as item>
                                 <tr>
-                                    <input type="hidden" name="GroupMetadatas[${item_index}].type" value="entity">
+                                    <input type="hidden" name="entityMetadata[${item_index}].scope" value="entity">
                                     <td>
-                                        <input type="text" name="GroupMetadatas[${item_index}].name"
+                                        <input type="text" name="entityMetadata[${item_index}].name"
                                                value="${item.name}" size="20"
                                                class="required textInput valid">
                                     </td>
                                     <td>
-                                        <input type="text" name="GroupMetadatas[${item_index}].label"
+                                        <input type="text" name="entityMetadata[${item_index}].label"
                                                value="${item.label}"
-                                               size="20" class="required textInput valid">
+                                               size="20">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="entityMetadata[${item_index}].type"
+                                               value="${item.type}"
+                                               size="20">
                                     </td>
                                     <td>
                                         <a href="javascript:void(0)" class="btnDel ">删除</a>
@@ -115,29 +134,37 @@
                         <table class="list nowrap itemDetail" addButton="新增参数" width="100%">
                             <thead>
                             <tr>
-                                <th type="text" name="taskParams[#index#].name" size="20" fieldClass="required">
+                                <th type="text" name="fieldMetadata[#index#].name" size="20" fieldClass="required">
                                     name
                                 </th>
-                                <th type="text" name="taskParams[#index#].label" size="20" fieldClass="required">
+                                <th type="text" name="fieldMetadata[#index#].label" size="20" >
                                     label
+                                </th>
+                                <th type="text" name="fieldMetadata[#index#].type" size="20" >
+                                    type(int/string/boolean/enum)
                                 </th>
                                 <th type="del" width="60">操作</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <#list task.taskParams as item>
+                            <#list group.fieldMetadata as item>
                                 <tr>
-                                    <input type="hidden" name="GroupMetadatas[${item_index}].type" value="field">
+                                    <input type="hidden" name="fieldMetadata[${item_index}].scope" value="field">
                                     <td>
-                                        <input type="text" name="GroupMetadatas[${item_index}].name"
+                                        <input type="text" name="fieldMetadata[${item_index}].name"
                                                value="${item.name}" size="20"
                                                class="required textInput valid">
                                     </td>
                                     <td>
-                                        <input type="text" name="GroupMetadatas[${item_index}].label"
+                                        <input type="text" name="fieldMetadata[${item_index}].label"
                                                value="${item.label}"
-                                               size="20" class="required textInput valid">
+                                               size="20">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="fieldMetadata[${item_index}].type"
+                                               value="${item.type}"
+                                               size="20">
                                     </td>
                                     <td>
                                         <a href="javascript:void(0)" class="btnDel ">删除</a>

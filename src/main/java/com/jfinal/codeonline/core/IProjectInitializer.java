@@ -1,7 +1,7 @@
 package com.jfinal.codeonline.core;
 
-import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.plugin.activerecord.Record;
 
 public interface IProjectInitializer {
-    void init(Project project);
+    void init(Record project);
 }

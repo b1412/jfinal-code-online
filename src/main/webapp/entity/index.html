@@ -1,8 +1,8 @@
 <#include "/common/template.html" />
-<@simpleLayout actionUrl="entity" params="project.id=${project.id}">
+<@simpleLayout actionUrl="entity/${projectId}" >
 <div class="pageHeader">
     <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="entity/" method="post">
-        <input type="hidden" name="project.id" value="${project.id}">
+        <input type="hidden" name="projectId" value="${projectId}">
 
         <div class="searchBar">
             <ul class="searchContent">
@@ -17,42 +17,21 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="entity/edit/-1?project.id=${project.id}" target="navTab"
+            <li><a class="add" href="entity/edit/-1?projectId=${projectId}" target="navTab"
                    ref="editEntity"><span>添加</span></a></li>
             <li class="line">line</li>
             <li><a class="delete" href="entity/delete/{itemId}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a>
             </li>
             <li class="line">line</li>
-            <li><a class="edit" href="entity/edit/{itemId}?project.id=${project.id}" target="navTab"><span>修改</span></a>
+            <li><a class="edit" href="entity/edit/{itemId}?projectId=${projectId}" target="navTab"><span>修改</span></a>
             </li>
             <li class="line">line</li>
-            <li><a class="edit" href="field?entity.id={itemId}" target="navTab" rel="field"><span>编辑字段</span></a>
+            <li><a class="edit" href="field/{itemId}" target="navTab" rel="field"><span>编辑字段</span></a>
+            </li>
+            <li><a class="add" href="entity/create/{itemId}" target="navTab" ref="createProject"><span>生成实体</span></a>
             </li>
         </ul>
     </div>
-    <table class="table" width="100%" layoutH="138">
-        <thead>
-        <tr>
-            <th>表名</th>
-            <th>描述</th>
-            <th>所属项目</th>
-        </tr>
-        </thead>
-        <tbody>
-        <#list page.getList() as item>
-            <tr target="itemId" rel="${item.id}">
-                <td>
-                    ${(item.name)!}
-                </td>
-                <td>
-                    ${(item.label)!}
-                </td>
-                <td>
-                    ${(item.project.name)!}
-                </td>
-            </tr>
-        </#list>
-        </tbody>
-    </table>
+    <@dynamicTablePage></@dynamicTablePage>
 </div>
 </@simpleLayout>

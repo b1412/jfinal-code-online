@@ -6,6 +6,8 @@ public class Config {
 
     private static IConfigDataProvider configDataProvider;
 
+    private static IModelProvider modelProvider;
+
     private static String templatePath;
 
     private static String targetPath;
@@ -32,6 +34,14 @@ public class Config {
 
     static void configDataProvider(IConfigDataProvider configDataProvider) {
         Config.configDataProvider = configDataProvider;
+    }
+
+    public static IModelProvider modelProvider() {
+        return modelProvider;
+    }
+
+    static void modelProvider(IModelProvider modelProvider) {
+        Config.modelProvider = modelProvider;
     }
 
     public static String templatePath() {

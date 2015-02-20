@@ -55,5 +55,19 @@ public class Group extends ModelExt<Group> {
         deleteTasks(get("id"));
     }
 
+    public void deleteMetadata(){
+        Db.update("delete from group_metadata where groupId = ?", get("id"));
+    }
 
+    public List<GroupMetadata> getProjectMetadata(){
+        return GroupMetadata.DAO.find("select * from group_metadata where groupId = ? and scope='project'",get("id"));
+    }
+
+    public List<GroupMetadata> getEntityMetadata(){
+        return GroupMetadata.DAO.find("select * from group_metadata where groupId = ? and scope='entity'",get("id"));
+    }
+
+    public List<GroupMetadata> getFieldMetadata(){
+        return GroupMetadata.DAO.find("select * from group_metadata where groupId = ? and scope='field'",get("id"));
+    }
 }

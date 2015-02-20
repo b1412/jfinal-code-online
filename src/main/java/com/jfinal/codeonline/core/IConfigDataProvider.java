@@ -13,12 +13,15 @@ public interface IConfigDataProvider {
 
     List<String> dbTypes();
 
-    List<String> fieldTypes(String dbType);
+    List<String> fieldTypes();
 
     String javaType(String dbType, String fieldType);
 
     String dbColumnType(String dbType, String fieldType);
 
     List<String> utilityClasses();
+
+    List<String> buildTools();
+
 
 }

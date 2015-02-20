@@ -1,54 +1,15 @@
 <#include "/common/template.html" />
 <div class="pageContent">
-    <form method="post" action="field/save" class="pageForm required-validate"
-          onsubmit="return validateCallback(this, navTabAjaxDone);">
-        <input type="hidden" name="field.id" value="${field.id}">
-        <input type="hidden" name="field.entityId" value="${field.entityId}">
+    <form method="post" action="field/save" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+        <input type="hidden" name="itemId" value="${itemId}">
+        <input type="hidden" name="entityId" value="${entityId}">
+        <@dynamicTableEditor></@dynamicTableEditor>
 
-        <div class="pageFormContent" layoutH="56">
-            <p>
-                <label>字段名：</label>
-                <input name="field.name" class="required" type="text" value="${field.name}"/>
-            </p>
-            <p>
-                <label>字段类型：</label>
-                <select class="combox" name="field.type">
-                    <#list  types as item>
-                        <option <#if item==field.type>selected="selected"</#if> value="${item}">${item}</option>
-                    </#list>
-                </select>
-            </p>
-            <p>
-                <label>描述：</label>
-                <input name="field.label" class="required" type="text" value="${field.label}"/>
-            </p>
-            <p>
-                <label>是否可查询：</label>
-                <@select  data=yesOrNo name="field.isSearchable" title="display"  id="value" value=field.isSearchable></@select>
-            </p>
-
-            <!--<p>-->
-            <!--<label>是否主键：</label>-->
-            <!--<input name="field.isPrimaryKey" class="required" type="text" defValue="0"-->
-            <!--value="${field.isPrimaryKey}"/>-->
-            <!--</p>-->
-
-        </div>
         <div class="formBar">
             <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
                 <li>
-                    <div class="buttonActive">
-                        <div class="buttonContent">
-                            <button type="submit">保存</button>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="button">
-                        <div class="buttonContent">
-                            <button type="button" class="close">取消</button>
-                        </div>
-                    </div>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,50 @@
+<#include "/common/template.html" />
+<@simpleLayout actionUrl="/project/tree/${project.itemid}">
+<div class="pageHeader">
+    <form rel="pagerForm" onsubmit="return navTabSearch(this);" action="/project/tree/${project.itemid}" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+            </ul>
+            <div class="subBar">
+
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+        </ul>
+    </div>
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a title="确实要生成这些task吗" target="selectedTodo" rel="taskIds" href="/project/create/${project.itemid}"
+                   class="delete"><span>生成</span></a></li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <th width="30"><input type="checkbox" class="checkboxCtrl" checked="checked" group="taskIds"/></th>
+            <th>任务名</th>
+            <th>任务类型</th>
+        </tr>
+        </thead>
+        <tbody>
+        <#list page.getList() as item>
+            <tr target="itemid" rel="${item.id}">
+                <td>
+                    <input type="checkbox" name="taskIds" checked="checked" value="${item.id}"/>
+                </td>
+                <td>
+                    ${item.taskname}
+                </td>
+                <td>
+                    ${item.type}
+                </td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+</div>
+</@simpleLayout>

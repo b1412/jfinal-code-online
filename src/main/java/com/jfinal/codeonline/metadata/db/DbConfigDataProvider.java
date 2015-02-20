@@ -24,6 +24,7 @@ public class DbConfigDataProvider implements IConfigDataProvider {
         AutoTableBindPlugin atbp = new AutoTableBindPlugin("metadata", dp, SimpleNameStyles.LOWER_UNDERLINE);
         atbp.addScanPackages("com.jfinal.codeonline.metadata.db");
         atbp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
+        //        atbp.setDialect(new MysqlDialect());
         dp.start();
         atbp.start();
     }
@@ -64,13 +65,8 @@ public class DbConfigDataProvider implements IConfigDataProvider {
     }
 
     @Override
-    public List<String> fieldTypes(String dbType) {
-        List<String> result = Lists.newArrayList();
-        List<DataType> dataTypes = DataType.DAO.findByColumn("dbType", dbType);
-        for (DataType dataType : dataTypes) {
-            result.add(dataType.getStr("fieldType"));
-        }
-        return result;
+    public List<String> fieldTypes() {
+        return Db.query("select distinct(fieldType) FROM data_type");
     }
 
     @Override
@@ -90,6 +86,11 @@ public class DbConfigDataProvider implements IConfigDataProvider {
     @Override
     public List<String> utilityClasses() {
         return UtilityClass.DAO.findAllNames();
+    }
+
+    @Override
+    public List<String> buildTools() {
+        return BuildTool.DAO.findAllNames();
     }
 
 }

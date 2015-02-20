@@ -2,6 +2,7 @@ package com.jfinal.codeonline.ext;
 
 import com.jfinal.codeonline.core.*;
 import com.jfinal.codeonline.metadata.db.DbConfigDataProvider;
+import com.jfinal.codeonline.metadata.db.DbModelProvider;
 import com.jfinal.codeonline.script.DefaultScriptHelper;
 import com.jfinal.codeonline.template.FreeMarkerHelper;
 import com.jfinal.kit.PathKit;
@@ -18,6 +19,11 @@ public class MyCodeOnlineConfig extends CodeOnlineConfig {
     @Override
     public IConfigDataProvider configConfigDataProvider() {
         return new DbConfigDataProvider();
+    }
+
+    @Override
+    public IModelProvider modelProvider() {
+        return new DbModelProvider();
     }
 
     @Override

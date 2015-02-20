@@ -21,7 +21,9 @@
 <div>
     <div class="pageContent" layoutH="1">
         <ul class="tree treeFolder expand">
-            <@fileTree root/>
+            <#if root??>
+                <@fileTree root/>
+            </#if>
         </ul>
     </div>
 </div>

@@ -10,6 +10,7 @@ import com.jfinal.ext.plugin.tablebind.AutoTableBindPlugin;
 import com.jfinal.ext.plugin.tablebind.SimpleNameStyles;
 import com.jfinal.ext.route.AutoBindRoutes;
 import com.jfinal.plugin.activerecord.CaseInsensitiveContainerFactory;
+import com.jfinal.plugin.activerecord.SqlReporter;
 import com.jfinal.plugin.activerecord.tx.TxByRegex;
 import com.jfinal.plugin.druid.DruidPlugin;
 
@@ -34,8 +35,10 @@ public class CodeConfig extends JFinalConfig {
         DruidPlugin druidPlugin = new DruidPlugin(getProperty("jdbcUrl"), getProperty("username"), getProperty(
                 "password").trim(), getProperty("driver"));
         AutoTableBindPlugin atbp = new AutoTableBindPlugin(druidPlugin, SimpleNameStyles.LOWER_UNDERLINE);
-        atbp.setContainerFactory(new CaseInsensitiveContainerFactory(true)).setShowSql(true);
+        atbp.setContainerFactory(new CaseInsensitiveContainerFactory(true));
         atbp.addScanPackages("com.jfinal.codeonline.ui.dwz");
+//        atbp.setDialect(new MysqlDialect());
+        SqlReporter.setLogger(true);
         me.add(druidPlugin);
         me.add(atbp);
         me.add(new CodeOnlinePlugin(new MyCodeOnlineConfig()));

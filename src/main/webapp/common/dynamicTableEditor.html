@@ -1,0 +1,27 @@
+<#macro dynamicTableEditor>
+    <div class="pageFormContent" layoutH="56">
+        <#list metadataList as metadata>
+            <p>
+                <label>${metadata.label}</label>
+                <#if metadata.type="string" >
+                    <input name="record.${metadata.name}" type="text" size="30" value="${record[metadata.name]}"/>
+                </#if>
+                <#if metadata.type="int" >
+                    <input name="record.${metadata.name}" type="text" size="30" value="${record[metadata.name]}"/>
+                </#if>
+                <#if metadata.type="enum" >
+                    <select class="combox" name="record.${metadata.name}">
+                        <#list map[metadata.name] as option >
+                            <option
+                            <#if option==record[metadata.name]>selected="selected"</#if>
+                            value=${option}>${option}</option>
+                        </#list>
+                    </select>
+                </#if>
+                <#if metadata.type="boolean">
+                    <@select data= yesOrNo title="display" name="record.${metadata.name}" id="value" value=record[metadata.name]></@select>
+                </#if>
+            </p>
+        </#list>
+    </div>
+</#macro>

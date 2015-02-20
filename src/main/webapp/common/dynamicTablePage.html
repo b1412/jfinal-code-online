@@ -1,0 +1,33 @@
+<#macro dynamicTablePage>
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <#list metadataList as metadata>
+                <th>${metadata.label}</th>
+            </#list>
+        </tr>
+        </thead>
+        <tbody>
+        <#list page.getList() as record>
+            <tr target="itemId" rel="${record.itemId}">
+                <#list metadataList as metadata>
+                    <td>
+                        <#if metadata.type="int">
+                            ${record[metadata.name]}
+                        </#if>
+                        <#if metadata.type="string">
+                            ${record[metadata.name]}
+                        </#if>
+                        <#if metadata.type="enum">
+                            ${record[metadata.name]}
+                        </#if>
+                        <#if metadata.type="boolean">
+                            ${YesOrNo.display(record[metadata.name])}
+                        </#if>
+                    </td>
+                </#list>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+</#macro>

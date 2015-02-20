@@ -2,7 +2,7 @@ package com.jfinal.codeonline.ext;
 
 import com.jfinal.codeonline.core.Config;
 import com.jfinal.codeonline.core.IProjectInitializer;
-import com.jfinal.codeonline.ui.dwz.project.Project;
+import com.jfinal.plugin.activerecord.Record;
 
 import java.io.File;
 
@@ -10,7 +10,7 @@ import static com.jfinal.codeonline.core.Constants.FS;
 
 public class GradleInitializer implements IProjectInitializer {
     @Override
-    public void init(Project project) {
+    public void init(Record project) {
         File baseDir = new File(Config.targetPath() + FS + project.get("name"));
         baseDir.mkdirs();
         new File(baseDir, FS + "src").mkdirs();

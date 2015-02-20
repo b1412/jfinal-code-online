@@ -15,81 +15,34 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="project/edit/-1" target="navTab" ref="editProject"><span>添加</span></a></li>
+            <li>
+                <a class="add" href="project/edit/-1" target="navTab" ref="editProject"><span>添加</span></a></li>
             <li class="line">line</li>
-            <li><a class="delete" href="project/delete/{itemId}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a>
+            <li>
+                <a class="delete" href="project/delete/{itemId}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a>
             </li>
             <li class="line">line</li>
-            <li><a class="edit" href="project/edit/{itemId}" target="navTab" rel="editProject"><span>修改</span></a></li>
+            <li>
+                <a class="edit" href="project/edit/{itemId}" target="navTab" rel="editProject"><span>修改</span></a></li>
             <li class="line">line</li>
-            <li><a class="edit" href="entity?project.id={itemId}" target="navTab" rel="entity"><span>编辑实体</span></a></li>
-            <li class="line">line</li>
-            <li><a class="add" href="project/create/{itemId}" target="navTab" ref="createProject"><span>生成项目</span></a>
+            <li>
+                <a class="edit" href="entity/{itemId}" target="navTab" rel="entity"><span>编辑实体</span></a>
             </li>
-            <li><a class="add" href="project/tree/{itemId}" target="navTab" ref="viewProject"><span>查看项目</span></a>
+            <li class="line">line</li>
+            <li>
+                <a class="add" href="project/selectTasks/{itemId}" target="navTab"
+                   ref="selectTasks"><span>生成项目</span></a>
+            </li>
+            <li>
+                <a class="add" href="project/tree/{itemId}" target="navTab" ref="viewProject"><span>查看项目</span></a>
+            </li>
+            <li>
+                <a class="delete" href="project/clean/{itemId}" target="ajaxTodo" title="确定要清空整个项目文件?"><span>清空项目</span></a>
             </li>
             <li class="line">line</li>
         </ul>
     </div>
-    <table class="table" width="100%" layoutH="138">
-        <thead>
-        <tr>
-            <th>项目名</th>
-            <th>项目描述</th>
-            <th>构建类型</th>
-            <th>视图类型</th>
-            <th>模版引擎</th>
-            <th>数据库</th>
-            <th>数据库连接</th>
-            <th>用户名</th>
-            <th>密码</th>
-            <th>包名</th>
-            <!--<th>IP</th>-->
-            <!--<th>端口</th>-->
-        </tr>
-        </thead>
-        <tbody>
-        <#list page.getList() as item>
-            <tr target="itemId" rel="${item.id}">
-                <td>
-                    ${item.name}
-                </td>
-                <td>
-                    ${item.description}
-                </td>
-                <td>
-                    ${item.management}
-                </td>
-                <td>
-                    ${item.viewFramework}
-                </td>
-                <td>
-                    ${item.viewEngine}
-                </td>
-                <td>
-                    ${item.dbType}
-                </td>
-                <td>
-                    ${item.jdbcurl}
-                </td>
-                <td>
-                    ${item.username}
-                </td>
-                <td>
-                    ${item.password}
-                </td>
-                <td>
-                    ${item.packageName}
-                </td>
-                <!--<td>-->
-                    <!--${item.ip}-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--${item.port}-->
-                <!--</td>-->
-            </tr>
-        </#list>
-        </tbody>
-    </table>
+    <@dynamicTablePage></@dynamicTablePage>
+
 </div>
 </@simpleLayout>

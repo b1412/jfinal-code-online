@@ -2,6 +2,7 @@ package com.jfinal.codeonline.ui.dwz.common;
 
 import com.google.common.collect.Lists;
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Record;
 
 import java.util.Collections;
 import java.util.List;
@@ -56,5 +57,20 @@ public class BaseController<T> extends Controller {
         }
         Collections.sort(list);
         return list;
+    }
+
+    /**
+     * @author xwalker
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T getRecord(String recordName) {
+        return (T) getRecord(Record.class, recordName);
+    }
+
+    /**
+     * @author xwalker
+     */
+    public <T> T getRecord(Class<T> recordClass, String recordName) {
+        return (T) RecordInjector.inject(recordClass, recordName, getRequest(), false);
     }
 }
